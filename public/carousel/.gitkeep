@@ -1,0 +1,4 @@
+# Place your 16:9 carousel images here
+# Name them: hero1.jpg, hero2.jpg, hero3.jpg, etc.
+# Or update the carouselImages array in components/Hero.tsx with your image paths
+
