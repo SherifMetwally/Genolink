@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { smoothScrollTo } from '@/lib/utils';
+import { smoothScrollTo, getImagePath } from '@/lib/utils';
 
 export default function Footer() {
   return (
@@ -17,7 +17,7 @@ export default function Footer() {
           >
             <div className="relative h-10 w-32 md:h-12 md:w-40 mb-2">
               <Image
-                src="/logo.png"
+                src={getImagePath('logo.png')}
                 alt="GenoLink Logo"
                 fill
                 className="object-contain"

@@ -2,15 +2,15 @@
 
 import { motion } from 'framer-motion';
 import { HiChevronDown } from 'react-icons/hi';
-import { smoothScrollTo } from '@/lib/utils';
+import { smoothScrollTo, getImagePath } from '@/lib/utils';
 import HeroCarousel from './HeroCarousel';
 
 // Add your carousel images here - place them in public/carousel/ folder
 // Example: ['/carousel/image1.jpg', '/carousel/image2.jpg', '/carousel/image3.jpg']
 const carouselImages = [
-  '/carousel/hero1.png',
-  '/carousel/hero2.png',
-  '/carousel/hero3.png',
+  getImagePath('carousel/hero1.png'),
+  getImagePath('carousel/hero2.png'),
+  getImagePath('carousel/hero3.png'),
 ];
 
 export default function Hero() {
