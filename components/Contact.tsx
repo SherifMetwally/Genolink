@@ -10,7 +10,7 @@ export default function Contact() {
       <div 
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: 'url(/backgrounds/contact-bg.png)',
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/backgrounds/contact-bg.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

@@ -10,7 +10,7 @@ export default function Collaboration() {
       <div 
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: 'url(/backgrounds/collaboration-bg.png)',
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/backgrounds/collaboration-bg.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

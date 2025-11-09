@@ -58,7 +58,7 @@ export default function About() {
       <div 
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: 'url(/backgrounds/about-us-bg.png)',
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/backgrounds/about-us-bg.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

@@ -28,7 +28,7 @@ export default function ForPatients() {
       <div 
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: 'url(/backgrounds/for-patients-bg.png)',
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/backgrounds/for-patients-bg.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

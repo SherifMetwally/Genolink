@@ -79,7 +79,7 @@ export default function Services() {
       <div 
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: 'url(/backgrounds/services-bg.png)',
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/backgrounds/services-bg.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

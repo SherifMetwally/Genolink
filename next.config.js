@@ -17,6 +17,9 @@ const nextConfig = {
   basePath: basePath,
   assetPrefix: basePath,
   trailingSlash: true,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 }
 
 module.exports = nextConfig
