@@ -101,8 +101,8 @@ export default function HeroCarousel({
               priority={currentIndex === 0}
               unoptimized
             />
-            {/* Overlay gradient for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-lab-blue/40 via-lab-blue/20 to-lab-blue/60" />
+            {/* Overlay gradient for better text readability and logo contrast */}
+            <div className="absolute inset-0 bg-gradient-to-b from-lab-blue/65 via-lab-blue/55 to-lab-blue/75" />
           </motion.div>
         </AnimatePresence>
 

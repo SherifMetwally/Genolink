@@ -11,6 +11,8 @@ import {
   FaChevronUp,
   FaFlask
 } from 'react-icons/fa';
+import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 const services = [
   {
@@ -100,7 +102,31 @@ export default function Services() {
           <div className="section-divider mx-auto max-w-md"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto">
+          {/* Image Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-12"
+          >
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="relative h-64 md:h-80 rounded-lg overflow-hidden border-2 border-gold/30 cursor-pointer transition-all duration-300"
+            >
+              <Image
+                src={getImagePath('sections/services.png')}
+                alt="Our Services - Advanced Genomic Testing"
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-110"
+                unoptimized
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             const isExpanded = expandedService === service.id;
@@ -197,6 +223,7 @@ export default function Services() {
               </motion.div>
             );
           })}
+          </div>
         </div>
 
         <motion.div

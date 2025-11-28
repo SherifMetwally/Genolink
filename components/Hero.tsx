@@ -24,13 +24,13 @@ export default function Hero() {
       {/* Animated Background Pattern Overlay */}
       <div className="absolute inset-0 opacity-10 z-0">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.3) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(2, 80, 152, 0.3) 1px, transparent 0)`,
           backgroundSize: '50px 50px',
         }} />
       </div>
 
-      {/* Content Overlay with backdrop for better text readability */}
-      <div className="absolute inset-0 bg-lab-blue/30 backdrop-blur-[1px] z-[1]" />
+      {/* Content Overlay with backdrop for better text readability and logo contrast */}
+      <div className="absolute inset-0 bg-lab-blue/45 backdrop-blur-[2px] z-[1]" />
       
       {/* Content Overlay */}
       <div className="container mx-auto px-4 relative z-10">
@@ -40,7 +40,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 "
+            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 gold-gradient"
           >
             GenoLink
           </motion.h1>

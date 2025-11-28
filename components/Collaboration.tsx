@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { FaHandshake, FaHospital, FaUniversity, FaEnvelope } from 'react-icons/fa';
+import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 export default function Collaboration() {
   return (
@@ -31,27 +33,53 @@ export default function Collaboration() {
           <div className="section-divider mx-auto max-w-md"></div>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-xl md:text-2xl text-center text-gray-200 mb-12 leading-relaxed"
-          >
-            Genolink welcomes partnerships with healthcare providers, hospitals, and research institutions 
-            interested in genomic testing and precision medicine programs.
-          </motion.p>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="order-1"
+            >
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed"
+              >
+                Genolink welcomes partnerships with healthcare providers, hospitals, and research institutions 
+                interested in genomic testing and precision medicine programs.
+              </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg text-center text-gray-200 mb-8 leading-relaxed"
-          >
-            Our team supports every stage — from test selection and logistics to education and result interpretation.
-          </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="text-lg text-gray-200 leading-relaxed"
+              >
+                Our team supports every stage — from test selection and logistics to education and result interpretation.
+              </motion.p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              whileHover={{ scale: 1.05 }}
+              className="relative h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden border-2 border-gold/30 order-2 cursor-pointer transition-all duration-300"
+            >
+              <Image
+                src={getImagePath('sections/collaboration.png')}
+                alt="Collaboration & Partnerships"
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-110"
+                unoptimized
+              />
+            </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

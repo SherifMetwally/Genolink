@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaGlobe, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 export default function Contact() {
   return (
@@ -31,18 +33,38 @@ export default function Contact() {
           <div className="section-divider mx-auto max-w-md"></div>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <motion.p
+        <div className="max-w-6xl mx-auto">
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-xl md:text-2xl text-center text-gray-200 mb-12 leading-relaxed"
+            transition={{ duration: 0.8 }}
+            className="mb-12"
           >
-            For general inquiries or testing information:
-          </motion.p>
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="relative h-64 md:h-80 rounded-lg overflow-hidden border-2 border-gold/30 mb-8 cursor-pointer transition-all duration-300"
+            >
+              <Image
+                src={getImagePath('sections/contact.png')}
+                alt="Contact Us - Get in Touch"
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-110"
+                unoptimized
+              />
+            </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-xl md:text-2xl text-center text-gray-200 leading-relaxed"
+            >
+              For general inquiries or testing information:
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <motion.a
               href="mailto:info@genolink.com"
               initial={{ opacity: 0, y: 50 }}
@@ -55,6 +77,20 @@ export default function Contact() {
               <FaEnvelope className="text-4xl text-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="text-lg font-bold text-gold mb-2">Email</h3>
               <p className="text-gray-200 text-sm">info@genolink.com</p>
+            </motion.a>
+
+            <motion.a
+              href="tel:+201144311155"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35, duration: 0.6 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold transition-all duration-300 text-center group"
+            >
+              <FaPhone className="text-4xl text-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-lg font-bold text-gold mb-2">Phone</h3>
+              <p className="text-gray-200 text-sm">+201144311155</p>
             </motion.a>
 
             <motion.a
@@ -77,7 +113,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.6 }}
+              transition={{ delay: 0.45, duration: 0.6 }}
               whileHover={{ scale: 1.05, y: -5 }}
               className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold transition-all duration-300 text-center"
             >

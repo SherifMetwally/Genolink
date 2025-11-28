@@ -10,24 +10,24 @@ const config: Config = {
     extend: {
       colors: {
         'lab-blue': {
-          DEFAULT: '#1E3A5F',
-          light: '#2E4A7F',
-          dark: '#0F1F3A',
+          DEFAULT: '#025098',
+          light: '#1E6BB8',
+          dark: '#082846',
         },
         'accent-blue': {
-          DEFAULT: '#3B82F6',
-          light: '#60A5FA',
-          dark: '#2563EB',
+          DEFAULT: '#025098',
+          light: '#1E6BB8',
+          dark: '#082846',
         },
         'gold': {
-          DEFAULT: '#D4AF37',
-          light: '#FFD700',
-          dark: '#B8941F',
+          DEFAULT: '#70993c',
+          light: '#8BB85A',
+          dark: '#5A7A2F',
         },
       },
       backgroundImage: {
-        'blue-gradient': 'linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)',
-        'gold-gradient': 'linear-gradient(135deg, #D4AF37 0%, #B8941F 100%)',
+        'blue-gradient': 'linear-gradient(135deg, #025098 0%, #082846 100%)',
+        'gold-gradient': 'linear-gradient(135deg, #70993c 0%, #5A7A2F 100%)',
       },
       fontFamily: {
         'sans': ['Poppins', 'sans-serif'],

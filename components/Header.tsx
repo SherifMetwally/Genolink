@@ -68,7 +68,7 @@ export default function Header() {
           >
             <div className="relative h-10 w-32 md:h-12 md:w-40">
               <Image
-                src={getImagePath('logo.png')}
+                src={getImagePath('logo4.png')}
                 alt="GenoLink Logo"
                 fill
                 className="object-contain"

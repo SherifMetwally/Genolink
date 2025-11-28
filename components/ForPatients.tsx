@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { FaUserMd, FaShieldAlt, FaLock, FaHeartbeat } from 'react-icons/fa';
+import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 const features = [
   {
@@ -49,27 +51,53 @@ export default function ForPatients() {
           <div className="section-divider mx-auto max-w-md"></div>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-xl md:text-2xl text-center text-gold mb-4 font-semibold"
-          >
-            Your health deserves precision.
-          </motion.p>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="order-1"
+            >
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="text-xl md:text-2xl text-gold mb-4 font-semibold"
+              >
+                Your health deserves precision.
+              </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg md:text-xl text-center text-gray-200 mb-12 leading-relaxed"
-          >
-            Genolink connects you with internationally accredited laboratories that analyze your DNA 
-            to provide clear, clinically actionable insights about your condition or genetic risks.
-          </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="text-lg md:text-xl text-gray-200 leading-relaxed"
+              >
+                Genolink connects you with internationally accredited laboratories that analyze your DNA 
+                to provide clear, clinically actionable insights about your condition or genetic risks.
+              </motion.p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              whileHover={{ scale: 1.05 }}
+              className="relative h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden border-2 border-gold/30 order-2 cursor-pointer transition-all duration-300"
+            >
+              <Image
+                src={getImagePath('sections/for-patients.png')}
+                alt="For Patients - Precision Healthcare"
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-110"
+                unoptimized
+              />
+            </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.map((feature, index) => {

@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { FaStethoscope, FaFlask, FaShippingFast, FaComments } from 'react-icons/fa';
+import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 const benefits = [
   {
@@ -54,18 +56,38 @@ export default function ForPhysicians() {
           <div className="section-divider mx-auto max-w-md"></div>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-xl md:text-2xl text-center text-gray-200 mb-12 leading-relaxed"
-          >
-            Partner with Genolink to enhance your diagnostic and treatment capabilities.
-            We offer seamless logistics, fast turnaround times, and expert case support — 
-            ensuring you and your patients benefit from global-standard genomic insights.
-          </motion.p>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              whileHover={{ scale: 1.05 }}
+              className="relative h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden border-2 border-gold/30 order-2 lg:order-1 cursor-pointer transition-all duration-300"
+            >
+              <Image
+                src={getImagePath('sections/for-physicians.png')}
+                alt="For Physicians - Partner with GenoLink"
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-110"
+                unoptimized
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="order-1 lg:order-2"
+            >
+              <p className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
+                Partner with Genolink to enhance your diagnostic and treatment capabilities.
+                We offer seamless logistics, fast turnaround times, and expert case support — 
+                ensuring you and your patients benefit from global-standard genomic insights.
+              </p>
+            </motion.div>
+          </div>
 
           <h3 className="text-2xl font-bold text-white mb-8 text-center">Why Partner with Us:</h3>
 
