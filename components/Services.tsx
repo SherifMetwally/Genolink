@@ -9,7 +9,13 @@ import {
   FaPills,
   FaChevronDown,
   FaChevronUp,
-  FaFlask
+  FaFlask,
+  FaHeartbeat,
+  FaAppleAlt,
+  FaSpa,
+  FaDumbbell,
+  FaMicroscope,
+  FaClipboardList
 } from 'react-icons/fa';
 import Image from 'next/image';
 import { getImagePath } from '@/lib/utils';
@@ -64,6 +70,79 @@ const services = [
     details: [
       'Drug–gene interaction testing',
       'Personalized treatment optimization based on individual genetic profile',
+    ],
+  },
+  {
+    id: 'wellness',
+    icon: FaHeartbeat,
+    title: 'Wellness and Lifestyle',
+    featured: false,
+    description: 'Take a proactive approach to your health and discover which habits are best suited to your genome.',
+    details: [
+      'Actionable insights to live a better life',
+      'Personalized lifestyle recommendations based on your genetic profile',
+      'Optimize daily habits for better health outcomes',
+    ],
+  },
+  {
+    id: 'nutrigenetics',
+    icon: FaAppleAlt,
+    title: 'Nutrigenetics',
+    featured: false,
+    description: 'Learn about the relationships between food groups and your genes.',
+    details: [
+      'Create the most effective diet with a specialist',
+      'Understand how your genes influence nutrient metabolism',
+      'Personalized nutrition plans based on genetic insights',
+    ],
+  },
+  {
+    id: 'skincare',
+    icon: FaSpa,
+    title: 'Skincare',
+    featured: false,
+    description: 'Learn about the relationships between your genes and skin health.',
+    details: [
+      'Create the most suited and personalized skincare routine',
+      'Understand genetic factors affecting skin aging and health',
+      'Targeted skincare recommendations based on your DNA',
+    ],
+  },
+  {
+    id: 'fitness',
+    icon: FaDumbbell,
+    title: 'Fitness',
+    featured: false,
+    description: 'Gain advice on training, fitness and physical activity.',
+    details: [
+      'Develop the right workout based on your genome',
+      'Optimize training intensity and recovery based on genetic factors',
+      'Personalized fitness plans for better results',
+    ],
+  },
+  {
+    id: 'pharmacogenetics',
+    icon: FaPills,
+    title: 'Pharmacogenetics',
+    featured: false,
+    description: 'Understand how genes influence your body\'s ability to process medications.',
+    details: [
+      'Find the right treatment and dosage with a clinician',
+      'Avoid adverse drug reactions based on genetic predisposition',
+      'Optimize medication efficacy through genetic insights',
+    ],
+  },
+  {
+    id: 'other-services',
+    icon: FaClipboardList,
+    title: 'Other Services',
+    featured: false,
+    description: 'Additional specialized pathology services with expert review and advanced diagnostic techniques.',
+    details: [
+      'Pathology Services',
+      'Pathology Review',
+      'Immunohistochemistry (IHC)',
+      'Digital Pathology & Remote Consultations',
     ],
   },
 ];
