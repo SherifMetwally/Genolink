@@ -40,39 +40,41 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 gold-gradient"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight"
           >
-            GenoLink
+            Precision Oncology & Onco-Hematology Diagnostics Across Egypt, GCC & the Middle East
           </motion.h1>
-
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-xl md:text-2xl font-light  mb-8 tracking-wider"
-          >
-            CREATING THE FUTURE
-          </motion.p>
 
           {/* Subtitle */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="max-w-3xl mx-auto"
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="max-w-4xl mx-auto"
           >
-            <h2 className="text-2xl md:text-4xl font-semibold mb-6 text-white">
-              Bridging Global Genomics to the Middle East
-            </h2>
             <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-8">
-              Empowering Precision Medicine Across the Middle East
+              Genolink delivers advanced genomic testing for solid tumors and hematologic malignancies through partnerships with world-leading laboratories, ensuring accurate, clinically actionable results for patients and physicians across the region.
             </p>
-            <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-              Genolink connects physicians and patients with world-class international genomic laboratories.
-              We provide advanced, clinically validated genetic testing solutions that drive accurate diagnosis, 
-              personalized treatment, and better patient outcomes.
-            </p>
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => smoothScrollTo('contact')}
+                className="px-8 py-4 bg-gold hover:bg-gold-light text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+              >
+                Submit a Sample
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => smoothScrollTo('contact')}
+                className="px-8 py-4 bg-transparent border-2 border-gold hover:bg-gold/20 text-white font-semibold rounded-lg transition-all duration-300"
+              >
+                Contact Our Team
+              </motion.button>
+            </div>
           </motion.div>
 
           {/* Scroll Indicator */}

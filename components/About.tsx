@@ -10,25 +10,25 @@ const aboutCards = [
     id: 'who',
     icon: FaDna,
     title: 'Who We Are',
-    content: 'Genolink is a regional molecular diagnostics company specialized in advanced genetic and genomic testing. Through exclusive partnerships with leading international laboratories, we make global innovation accessible to healthcare providers across the Middle East.',
+    content: 'Genolink is an Egypt-based precision diagnostics company specializing in Oncology and Onco-Hematology genomics. We collaborate with internationally accredited laboratories to provide state-of-the-art cancer testing solutions across Egypt, the GCC, and the broader Middle East.',
   },
   {
     id: 'mission',
     icon: FaBullseye,
     title: 'Our Mission',
-    content: 'To bridge the gap between global genomic science and regional clinical practice — enabling precision medicine that is accessible, reliable, and meaningful.',
+    content: 'To empower clinicians with high-quality genomic insights that guide personalized cancer care.',
   },
   {
     id: 'vision',
     icon: FaEye,
     title: 'Our Vision',
-    content: 'A future where every patient in the Middle East benefits from personalized, genomics-driven healthcare.',
+    content: 'To become the leading regional genomics partner for precision oncology and hematology diagnostics.',
   },
   {
     id: 'values',
     icon: FaHeart,
     title: 'Our Values',
-    content: 'Integrity • Innovation • Accuracy • Collaboration • Clinical Impact',
+    content: 'Excellence: Clinical-grade quality and accuracy • Speed: Optimized regional logistics and fast turnaround • Innovation: Access to cutting-edge global technologies • Support: Strong scientific and medical consultation services',
   },
 ];
 
@@ -108,9 +108,9 @@ export default function About() {
             </motion.div>
             <div>
               <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
-                Genolink is a regional molecular diagnostics company specialized in advanced genetic and genomic testing. 
-                Through exclusive partnerships with leading international laboratories, we make global innovation accessible 
-                to healthcare providers across the Middle East.
+                Genolink is an Egypt-based precision diagnostics company specializing in Oncology and Onco-Hematology genomics. 
+                We collaborate with internationally accredited laboratories to provide state-of-the-art cancer testing solutions 
+                across Egypt, the GCC, and the broader Middle East.
               </p>
             </div>
           </motion.div>

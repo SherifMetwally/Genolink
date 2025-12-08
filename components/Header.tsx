@@ -8,11 +8,12 @@ import { smoothScrollTo, getImagePath } from '@/lib/utils';
 
 const navItems = [
   { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About Us' },
-  { id: 'services', label: 'Our Services' },
-  { id: 'physicians', label: 'For Physicians' },
-  { id: 'patients', label: 'For Patients' },
-  { id: 'partners', label: 'Our Partners' },
+  { id: 'about', label: 'About' },
+  { id: 'services', label: 'Services' },
+  { id: 'sample-requirements', label: 'Sample Requirements' },
+  { id: 'why-genolink', label: 'Why Genolink' },
+  { id: 'partners', label: 'Partners' },
+  { id: 'faq', label: 'FAQ' },
   { id: 'contact', label: 'Contact' },
 ];
 

@@ -1,98 +1,147 @@
-# Image Generation Prompts for GenoLink Sections
+# Image Generation Prompts for GenoLink Website
 
-Use these prompts in Google AI Studio (Gemini) to generate images for each section. All images should be in **16:9 aspect ratio** and saved as PNG files.
+This document contains AI image generation prompts for each section of the GenoLink landing page focused on Precision Oncology and Onco-Hematology.
 
-## Image Specifications
-- **Aspect Ratio**: 16:9 (landscape)
-- **Format**: PNG
-- **Style**: Professional, medical/scientific, modern, clean
-- **Color Scheme**: Should complement the blue lab theme with gold accents
-- **Resolution**: High resolution (recommended: 1920x1080 or higher)
+## Hero Carousel Images (16:9 ratio)
 
----
+Place these images in `public/carousel/` folder as `hero1.png`, `hero2.png`, `hero3.png`
 
-## 1. About Us Section
-**File Name**: `about-us.png`  
-**Location**: `public/sections/about-us.png`
+### Hero Image 1
+**Prompt:** "Professional medical laboratory setting with modern genomic sequencing equipment, scientists in lab coats analyzing DNA samples, blue and green scientific lighting, high-tech oncology research facility, photorealistic, clean and bright, professional healthcare photography"
 
-**Prompt**:
-```
-Create a professional, modern image representing a genomics and precision medicine company. Show a diverse team of scientists and medical professionals in a state-of-the-art laboratory setting, working collaboratively with DNA sequencing equipment and genomic data visualizations on screens. The atmosphere should be professional, innovative, and forward-thinking. Include subtle elements like DNA helix structures, molecular models, and advanced laboratory equipment. The color palette should complement a blue medical theme with warm gold accents. Style: professional photography, clean and modern, well-lit laboratory environment, 16:9 aspect ratio.
-```
+### Hero Image 2
+**Prompt:** "Close-up of advanced molecular diagnostics equipment for cancer testing, colorful DNA visualization on computer screens, precision medicine technology, modern laboratory environment with blue ambient lighting, scientific accuracy, photorealistic medical technology"
+
+### Hero Image 3
+**Prompt:** "Middle Eastern medical professionals collaborating in a state-of-the-art genomics laboratory, diverse team of scientists and doctors examining cancer test results, modern medical technology, professional healthcare setting, bright and optimistic atmosphere, photorealistic"
 
 ---
 
-## 2. Services Section
-**File Name**: `services.png`  
-**Location**: `public/sections/services.png`
+## Section Images
 
-**Prompt**:
-```
-Create a professional image showcasing advanced genomic testing services. Show sophisticated laboratory equipment including DNA sequencers, PCR machines, and molecular analysis tools. Include visual elements like DNA sequences, genetic data visualizations on computer screens, and sample processing. The scene should convey precision, accuracy, and cutting-edge technology. Style: professional medical photography, modern laboratory setting, blue and gold color accents, clean and scientific atmosphere, 16:9 aspect ratio.
-```
+### About Us Section
+**File:** `public/sections/about-us.png`
+
+**Prompt:** "Modern Egypt-based precision diagnostics company office, professional Middle Eastern scientists and medical professionals working together, genomic testing laboratory in background, collaborative atmosphere, blue and green color scheme, professional medical photography, represents oncology and hematology expertise"
 
 ---
 
-## 3. For Physicians Section
-**File Name**: `for-physicians.png`  
-**Location**: `public/sections/for-physicians.png`
+### Services Section
+**File:** `public/sections/services.png`
 
-**Prompt**:
-```
-Create a professional image showing a physician or medical professional reviewing genomic test results and reports on a tablet or computer screen. The setting should be a modern medical office or consultation room. Include elements like medical charts, genomic reports, and the physician in professional attire. The atmosphere should convey trust, expertise, and collaboration. Style: professional medical photography, warm and approachable, modern healthcare setting, blue and gold accents, 16:9 aspect ratio.
-```
+**Prompt:** "Comprehensive oncology and hematology laboratory services, advanced NGS sequencing equipment, DNA analysis screens showing tumor profiling data, cancer genomic testing equipment, molecular diagnostics laboratory, professional medical technology photography, blue and green lighting, represents precision cancer diagnostics"
 
 ---
 
-## 4. For Patients Section
-**File Name**: `for-patients.png`  
-**Location**: `public/sections/for-patients.png`
+### Sample Requirements Section
+**File:** `public/sections/sample-requirements.png`
 
-**Prompt**:
-```
-Create a compassionate and reassuring image representing patient-centered genomic healthcare. Show a diverse patient or family in a comfortable, modern healthcare setting, perhaps consulting with a healthcare provider or receiving personalized genetic information. The atmosphere should be warm, supportive, and empowering. Include subtle medical elements like genetic reports or DNA visualization. Style: professional healthcare photography, empathetic and human-centered, modern medical facility, blue and gold color scheme, 16:9 aspect ratio.
-```
+**Prompt:** "Professional medical sample collection and processing, FFPE tissue blocks, blood collection tubes with proper labels, bone marrow samples, laboratory specimen handling, proper sample storage conditions, clinical laboratory setting, professional medical photography, organized and sterile environment"
 
 ---
 
-## 5. Partners Section
-**File Name**: `partners.png`  
-**Location**: `public/sections/partners.png`
+### Why Genolink Section
+**File:** `public/sections/why-genolink.png`
 
-**Prompt**:
-```
-Create an image representing global collaboration and international partnerships in genomics. Show a world map or globe with connection lines, or multiple hands from different backgrounds coming together, symbolizing international collaboration. Include elements like DNA structures, laboratory logos, or partnership symbols. The atmosphere should convey trust, global reach, and international excellence. Style: professional business photography, modern and global, blue and gold accents, clean and sophisticated, 16:9 aspect ratio.
-```
+**Prompt:** "Map of Middle East and GCC region with connectivity lines showing regional healthcare network, Egypt highlighted as headquarters, medical logistics and sample transportation concept, modern healthcare infrastructure, professional business illustration style, blue and green color scheme, represents regional reach and partnership"
 
 ---
 
-## 6. Collaboration Section
-**File Name**: `collaboration.png`  
-**Location**: `public/sections/collaboration.png`
+### Partners Section
+**File:** `public/sections/partners.png`
 
-**Prompt**:
-```
-Create an image representing partnership and collaboration in healthcare and research. Show professionals from different fields (doctors, researchers, scientists) working together, perhaps in a meeting or collaborative workspace. Include elements like handshakes, shared documents, or collaborative discussions. The setting should be modern and professional, conveying trust and partnership. Style: professional business photography, collaborative atmosphere, modern office or meeting space, blue and gold color scheme, 16:9 aspect ratio.
-```
+**Prompt:** "International collaboration in genomics and precision medicine, handshake between medical professionals from different continents, global laboratory partnerships, world-class scientific cooperation, modern professional setting, diverse team, represents trusted international partnerships in cancer diagnostics"
 
 ---
 
-## 7. Contact Section
-**File Name**: `contact.png`  
-**Location**: `public/sections/contact.png`
+### Contact Section
+**File:** `public/sections/contact.png`
 
-**Prompt**:
-```
-Create a welcoming and accessible image representing communication and contact. Show a modern office or contact center with communication elements like phones, email interfaces, or video calls. Include diverse professionals ready to assist, or a welcoming reception area. The atmosphere should be friendly, professional, and approachable. Style: professional business photography, warm and inviting, modern office setting, blue and gold accents, 16:9 aspect ratio.
-```
+**Prompt:** "Modern professional contact center for medical services, customer support representative assisting healthcare providers, Cairo Egypt skyline in background, communication technology, professional medical consultation services, welcoming and accessible atmosphere, represents regional headquarters and support"
 
 ---
 
-## Notes for Image Generation:
-1. All images should maintain consistency in style and color palette
-2. Avoid overly clinical or sterile appearances - aim for modern, approachable professionalism
-3. Include diverse representation of people
-4. Ensure images are high quality and suitable for web use
-5. Images will be displayed with a gold border, so ensure good contrast
-6. Consider the blue lab theme background when generating colors
+## Background Images (Low opacity overlays)
 
+### About Us Background
+**File:** `public/backgrounds/about-us-bg.png`
+
+**Prompt:** "Abstract DNA helix pattern, molecular structure visualization, scientific background texture, subtle blue and green gradients, medical genomics theme, suitable for background overlay, high resolution"
+
+---
+
+### Services Background
+**File:** `public/backgrounds/services-bg.png`
+
+**Prompt:** "Abstract cancer cell research visualization, molecular biology patterns, oncology research concept art, blue color scheme with scientific accuracy, suitable for subtle background texture, modern medical illustration"
+
+---
+
+### Sample Requirements Background
+**File:** `public/backgrounds/sample-requirements-bg.png`
+
+**Prompt:** "Abstract laboratory equipment pattern, scientific testing concept, molecular diagnostics theme, clean professional medical background, blue and white color scheme, subtle texture suitable for overlay"
+
+---
+
+### Why Genolink Background
+**File:** `public/backgrounds/why-genolink-bg.png`
+
+**Prompt:** "Abstract network connections and regional map concept, Middle East geography subtle pattern, partnership and collaboration theme, professional business background, blue color scheme, suitable for subtle overlay"
+
+---
+
+### Partners Background
+**File:** `public/backgrounds/partners-bg.png`
+
+**Prompt:** "Abstract global connection network, international collaboration pattern, world map with connectivity lines, professional partnership theme, blue color scheme, suitable for background overlay"
+
+---
+
+### Contact Background
+**File:** `public/backgrounds/contact-bg.png`
+
+**Prompt:** "Abstract communication network pattern, professional business contact theme, modern technology connection concept, blue and green color scheme, suitable for background texture"
+
+---
+
+## Image Guidelines
+
+- **Aspect Ratios:**
+  - Hero carousel: 16:9 (1920x1080px recommended)
+  - Section images: Flexible, but 4:3 or 16:9 recommended (1200x900px or 1600x900px)
+  - Background images: High resolution (1920x1080px minimum)
+
+- **Color Scheme:**
+  - Primary Blue: #025098
+  - Accent Green: #70993c
+  - Dark Blue: #082846
+  - Professional, medical-grade appearance
+  - Avoid overly saturated or vibrant colors
+
+- **Style:**
+  - Photorealistic for main section images
+  - Professional medical/scientific photography
+  - Clean, modern, and trustworthy
+  - Middle Eastern representation where appropriate
+  - Focus on oncology and hematology themes
+
+- **Technical Requirements:**
+  - Save as PNG format
+  - Optimize for web (compress without losing quality)
+  - Ensure good contrast for text overlay (especially hero images)
+  - Background images should work well at 5-10% opacity
+
+---
+
+## Partner Logos
+
+### Current Partners
+- **Eurofins:** `public/partners/2.png` (existing)
+- **Dante Omics:** `public/partners/1.png` (existing)
+
+Partner logos should:
+- Be high resolution PNG with transparent background
+- Maintain original brand colors
+- Be clearly legible at various sizes
+- Work well on dark backgrounds (except Eurofins which has white background applied)

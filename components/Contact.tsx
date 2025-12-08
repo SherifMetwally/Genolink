@@ -58,13 +58,13 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-xl md:text-2xl text-center text-gray-200 leading-relaxed"
+              className="text-xl md:text-2xl text-center text-gray-200 leading-relaxed mb-2"
             >
-              For general inquiries or testing information:
+              Genolink – Regional Headquarters (Egypt)
             </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             <motion.a
               href="mailto:info@genolink.com"
               initial={{ opacity: 0, y: 50 }}
@@ -75,12 +75,12 @@ export default function Contact() {
               className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold transition-all duration-300 text-center group"
             >
               <FaEnvelope className="text-4xl text-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-lg font-bold text-gold mb-2">Email</h3>
+              <h3 className="text-lg font-bold text-gold mb-2">General Inquiries</h3>
               <p className="text-gray-200 text-sm">info@genolink.com</p>
             </motion.a>
 
             <motion.a
-              href="tel:+201144311155"
+              href="mailto:clinical@genolink.com"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -88,15 +88,13 @@ export default function Contact() {
               whileHover={{ scale: 1.05, y: -5 }}
               className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold transition-all duration-300 text-center group"
             >
-              <FaPhone className="text-4xl text-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-lg font-bold text-gold mb-2">Phone</h3>
-              <p className="text-gray-200 text-sm">+201144311155</p>
+              <FaEnvelope className="text-4xl text-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-lg font-bold text-gold mb-2">Medical Support</h3>
+              <p className="text-gray-200 text-sm">clinical@genolink.com</p>
             </motion.a>
 
             <motion.a
-              href="https://www.genolink.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:businessdevelopment@genolink.com"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -104,37 +102,57 @@ export default function Contact() {
               whileHover={{ scale: 1.05, y: -5 }}
               className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold transition-all duration-300 text-center group"
             >
-              <FaGlobe className="text-4xl text-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-lg font-bold text-gold mb-2">Website</h3>
-              <p className="text-gray-200 text-sm">www.genolink.com</p>
+              <FaEnvelope className="text-4xl text-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-lg font-bold text-gold mb-2">Business Partnerships</h3>
+              <p className="text-gray-200 text-sm">businessdevelopment@genolink.com</p>
+            </motion.a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <motion.a
+              href="tel:+2001144311155"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.45, duration: 0.6 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold transition-all duration-300 text-center group"
+            >
+              <FaPhone className="text-4xl text-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-lg font-bold text-gold mb-2">Phone</h3>
+              <p className="text-gray-200 text-sm">+2001144311155</p>
             </motion.a>
 
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.45, duration: 0.6 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
               whileHover={{ scale: 1.05, y: -5 }}
               className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold transition-all duration-300 text-center"
             >
               <FaMapMarkerAlt className="text-4xl text-gold mx-auto mb-4" />
-              <h3 className="text-lg font-bold text-gold mb-2">Location</h3>
+              <h3 className="text-lg font-bold text-gold mb-2">Address</h3>
               <p className="text-gray-200 text-sm">Cairo, Egypt</p>
             </motion.div>
           </div>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-center text-white text-lg font-semibold"
+            className="text-center bg-gold/10 rounded-lg p-6 border border-gold/30"
           >
-            Serving healthcare providers and patients across the Middle East.
-          </motion.p>
+            <p className="text-white text-lg font-semibold mb-2">
+              Serving healthcare providers across Egypt, GCC, and the wider Middle East
+            </p>
+            <p className="text-gray-300 text-sm">
+              Additional GCC contact points available upon request
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
-

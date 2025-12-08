@@ -5,150 +5,174 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaLungs, 
   FaDna, 
-  FaFemale, 
-  FaPills,
+  FaFlask,
+  FaVial,
   FaChevronDown,
   FaChevronUp,
-  FaFlask,
-  FaHeartbeat,
-  FaAppleAlt,
-  FaSpa,
-  FaDumbbell,
   FaMicroscope,
-  FaClipboardList
+  FaHeartbeat,
+  FaSyringe
 } from 'react-icons/fa';
 import Image from 'next/image';
 import { getImagePath } from '@/lib/utils';
 
-const services = [
+interface Service {
+  id: string;
+  icon: any;
+  title: string;
+  featured: boolean;
+  description: string;
+  details: string[];
+}
+
+const services: Service[] = [
   {
-    id: 'onco',
-    icon: FaLungs,
-    title: 'Onco-Hemato Genomics',
-    featured: true,
-    description: 'Comprehensive genomic profiling for both solid tumors and hematologic malignancies.',
-    details: [
-      'Solid tumor profiling (tissue & liquid biopsy)',
-      'Hematologic malignancy panels (leukemia, lymphoma, myeloma)',
-      'Fusion gene and translocation detection (e.g., BCR-ABL, PML-RARA, KMT2A)',
-      'Actionable biomarkers for targeted and immunotherapy',
-      'Minimal Residual Disease (MRD) and therapy monitoring by NGS',
-      'Companion diagnostics and clinical trial matching',
-    ],
-    highlight: 'Genolink serves as the regional reference for Onco-Hemato Genomics and Precision Medicine across the Middle East — empowering physicians with global-standard molecular insights.',
-  },
-  {
-    id: 'hereditary',
+    id: 'solid-tumor-profiling',
     icon: FaDna,
-    title: 'Hereditary & Rare Diseases',
-    featured: false,
-    description: 'Comprehensive genetic testing for hereditary conditions and rare diseases.',
+    title: 'Comprehensive Solid Tumor Profiling',
+    featured: true,
+    description: 'Full DNA + RNA genomic profiling for solid tumors with pathway-level therapeutic insights.',
     details: [
-      'Germline panels for hereditary cancer and rare syndromes',
-      'Carrier screening and family-based genetic evaluation',
-      'Whole Exome Sequencing (WES) and targeted gene analysis',
+      'TMB (Tumor Mutational Burden)',
+      'MSI (Microsatellite Instability)',
+      'Fusions',
+      'Copy number variations',
+      'LOH (Loss of Heterozygosity)',
+      'Pathway-level therapeutic insights',
     ],
   },
   {
-    id: 'women',
-    icon: FaFemale,
-    title: "Women's Health",
+    id: 'tumor-panels',
+    icon: FaLungs,
+    title: 'Tumor-Specific Panels',
     featured: false,
-    description: 'Specialized genetic testing for women\'s health and reproductive care.',
+    description: 'Targeted genomic panels designed for specific cancer types.',
     details: [
-      'Non-invasive prenatal testing (NIPT)',
-      'Reproductive genetics and miscarriage analysis',
-      'Pre-implantation genetic testing (PGT-A/PGS)',
+      'Breast Cancer',
+      'Lung Cancer',
+      'Colorectal Cancer',
+      'Prostate Cancer',
+      'Ovarian Cancer',
+      'Thyroid Cancer',
+      'Gastrointestinal Tumors',
     ],
   },
   {
-    id: 'pharma',
-    icon: FaPills,
-    title: 'Pharmacogenomics',
+    id: 'immunotherapy-biomarkers',
+    icon: FaFlask,
+    title: 'Immunotherapy Biomarkers',
     featured: false,
-    description: 'Personalized medication optimization based on genetic profile.',
+    description: 'Comprehensive biomarker testing to guide immunotherapy decisions.',
     details: [
-      'Drug–gene interaction testing',
-      'Personalized treatment optimization based on individual genetic profile',
+      'PD-L1 IHC',
+      'MSI / MMR',
+      'TMB',
     ],
   },
   {
-    id: 'wellness',
+    id: 'liquid-biopsy',
+    icon: FaVial,
+    title: 'Liquid Biopsy (ctDNA)',
+    featured: false,
+    description: 'Non-invasive blood-based genomic testing for cancer detection and monitoring.',
+    details: [
+      'Detection of actionable mutations',
+      'Monitoring disease progression',
+      'Identifying resistance mechanisms',
+    ],
+  },
+  {
+    id: 'hereditary-cancer',
     icon: FaHeartbeat,
-    title: 'Wellness and Lifestyle',
+    title: 'Hereditary Cancer Testing',
     featured: false,
-    description: 'Take a proactive approach to your health and discover which habits are best suited to your genome.',
+    description: 'Genetic testing for inherited cancer risk assessment.',
     details: [
-      'Actionable insights to live a better life',
-      'Personalized lifestyle recommendations based on your genetic profile',
-      'Optimize daily habits for better health outcomes',
+      'BRCA1/2',
+      'Multi-gene hereditary cancer panel (breast, ovarian, colon, prostate)',
     ],
   },
   {
-    id: 'nutrigenetics',
-    icon: FaAppleAlt,
-    title: 'Nutrigenetics',
-    featured: false,
-    description: 'Learn about the relationships between food groups and your genes.',
+    id: 'leukemia-panels',
+    icon: FaDna,
+    title: 'Leukemia Genomic Panels',
+    featured: true,
+    description: 'Comprehensive genomic panels for acute and chronic leukemias.',
     details: [
-      'Create the most effective diet with a specialist',
-      'Understand how your genes influence nutrient metabolism',
-      'Personalized nutrition plans based on genetic insights',
+      'AML, ALL, CLL, CML',
+      'FLT3, NPM1, IDH1/2, JAK2, TP53, DNMT3A, and more',
     ],
   },
   {
-    id: 'skincare',
-    icon: FaSpa,
-    title: 'Skincare',
+    id: 'lymphoma-diagnostics',
+    icon: FaMicroscope,
+    title: 'Lymphoma Diagnostics',
     featured: false,
-    description: 'Learn about the relationships between your genes and skin health.',
+    description: 'Advanced testing for B-cell and T-cell lymphomas.',
     details: [
-      'Create the most suited and personalized skincare routine',
-      'Understand genetic factors affecting skin aging and health',
-      'Targeted skincare recommendations based on your DNA',
+      'B-cell & T-cell NGS panels',
+      'BCR/TCR clonality testing',
+      'Fusions & rearrangements',
     ],
   },
   {
-    id: 'fitness',
-    icon: FaDumbbell,
-    title: 'Fitness',
+    id: 'myeloma',
+    icon: FaSyringe,
+    title: 'Myeloma & Plasma Disorders',
     featured: false,
-    description: 'Gain advice on training, fitness and physical activity.',
+    description: 'Specialized testing for multiple myeloma and related plasma cell disorders.',
     details: [
-      'Develop the right workout based on your genome',
-      'Optimize training intensity and recovery based on genetic factors',
-      'Personalized fitness plans for better results',
+      'Myeloma NGS',
+      'FISH for risk markers (17p, t(4;14), t(11;14)…)',
     ],
   },
   {
-    id: 'pharmacogenetics',
-    icon: FaPills,
-    title: 'Pharmacogenetics',
+    id: 'cytogenetics',
+    icon: FaFlask,
+    title: 'Cytogenetics & FISH',
     featured: false,
-    description: 'Understand how genes influence your body\'s ability to process medications.',
+    description: 'Classical and molecular cytogenetic analysis for hematologic malignancies.',
     details: [
-      'Find the right treatment and dosage with a clinician',
-      'Avoid adverse drug reactions based on genetic predisposition',
-      'Optimize medication efficacy through genetic insights',
+      'Karyotype analysis',
+      'Hematologic FISH panels (BCR-ABL, PML-RARA, KMT2A…)',
     ],
   },
   {
-    id: 'other-services',
-    icon: FaClipboardList,
-    title: 'Other Services',
+    id: 'mrd',
+    icon: FaMicroscope,
+    title: 'Minimal Residual Disease (MRD)',
     featured: false,
-    description: 'Additional specialized pathology services with expert review and advanced diagnostic techniques.',
+    description: 'Ultra-sensitive detection of residual cancer cells to monitor treatment response.',
     details: [
-      'Pathology Services',
-      'Pathology Review',
-      'Immunohistochemistry (IHC)',
-      'Digital Pathology & Remote Consultations',
+      'NGS-based MRD',
+      'Flow cytometry MRD (if offered through partners)',
     ],
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
+
 export default function Services() {
-  const [expandedService, setExpandedService] = useState<string | null>('onco');
+  const [expandedService, setExpandedService] = useState<string | null>(null);
 
   const toggleService = (id: string) => {
     setExpandedService(expandedService === id ? null : id);
@@ -158,7 +182,7 @@ export default function Services() {
     <section id="services" className="relative py-20 bg-lab-blue-dark overflow-hidden">
       {/* Background Image with Low Opacity */}
       <div 
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-5"
         style={{
           backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ''}/backgrounds/services-bg.png)`,
           backgroundSize: 'cover',
@@ -175,151 +199,120 @@ export default function Services() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 white-gradient flex items-center justify-center gap-3">
-            <FaFlask className="text-gold" />
+            <FaDna className="text-gold" />
             <span>Our Services</span>
           </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-6">
+            Oncology & Onco-Hematology Diagnostics
+          </p>
           <div className="section-divider mx-auto max-w-md"></div>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto">
-          {/* Image Section */}
+        <div className="max-w-7xl mx-auto mb-16">
+          {/* Section Image */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mb-12"
+            whileHover={{ scale: 1.05 }}
+            className="relative h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden border-2 border-gold/30 mb-12 cursor-pointer transition-all duration-300"
           >
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              className="relative h-64 md:h-80 rounded-lg overflow-hidden border-2 border-gold/30 cursor-pointer transition-all duration-300"
-            >
-              <Image
-                src={getImagePath('sections/services.png')}
-                alt="Our Services - Advanced Genomic Testing"
-                fill
-                className="object-cover transition-transform duration-300 hover:scale-110"
-                unoptimized
-              />
-            </motion.div>
+            <Image
+              src={getImagePath('sections/services.png')}
+              alt="Oncology and Onco-Hematology Services"
+              fill
+              className="object-cover transition-transform duration-300 hover:scale-110"
+              unoptimized
+            />
           </motion.div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            const isExpanded = expandedService === service.id;
-            
-            return (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ y: -5 }}
-                className={`relative rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                  service.featured
-                    ? 'md:col-span-2 border-gold bg-gold/10'
-                    : 'border-gold/30 bg-lab-blue/50 hover:border-gold/60'
-                }`}
-              >
-                <button
-                  onClick={() => toggleService(service.id)}
-                  className="w-full text-left p-6 focus:outline-none"
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              const isExpanded = expandedService === service.id;
+
+              return (
+                <motion.div
+                  key={service.id}
+                  variants={cardVariants}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  className={`relative rounded-lg overflow-hidden border transition-all duration-300 ${
+                    service.featured
+                      ? 'bg-gold/10 border-gold shadow-lg shadow-gold/20'
+                      : 'bg-lab-blue/50 backdrop-blur-sm border-gold/20 hover:border-gold/50'
+                  }`}
                 >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-4">
-                      <div className={`w-14 h-14 rounded-full flex items-center justify-center ${
-                        service.featured ? 'bg-gold' : 'bg-gold/20'
-                      }`}>
-                        <Icon className={`text-2xl ${
-                          service.featured ? 'text-lab-blue-dark' : 'text-gold'
-                        }`} />
-                      </div>
-                      <div>
-                        <h3 className={`text-2xl font-bold ${
-                          service.featured ? 'text-white' : 'text-white'
+                  {service.featured && (
+                    <div className="absolute top-4 right-4 bg-gold text-white text-xs font-bold px-3 py-1 rounded-full">
+                      Featured
+                    </div>
+                  )}
+
+                  <div className="p-6">
+                    <div className="flex items-start space-x-4 mb-4">
+                      <div className="flex-shrink-0">
+                        <div className={`w-14 h-14 rounded-full flex items-center justify-center ${
+                          service.featured ? 'bg-gold/30' : 'bg-gold/20'
                         }`}>
-                          {index + 1}. {service.title}
-                        </h3>
-                        {service.featured && (
-                          <span className="text-sm text-gold/80">Featured Service</span>
-                        )}
+                          <Icon className="text-2xl text-gold" />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h3 className="text-xl font-bold text-white">{service.title}</h3>
+                        </div>
                       </div>
                     </div>
-                    <motion.div
-                      animate={{ rotate: isExpanded ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
+
+                    <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    <button
+                      onClick={() => toggleService(service.id)}
+                      className="flex items-center justify-between w-full text-gold hover:text-gold-light transition-colors font-semibold text-sm"
                     >
-                      {isExpanded ? (
-                        <FaChevronUp className="text-gold text-xl" />
-                      ) : (
-                        <FaChevronDown className="text-gold text-xl" />
+                      <span>{isExpanded ? 'Show Less' : 'Learn More'}</span>
+                      {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
+                    </button>
+
+                    <AnimatePresence>
+                      {isExpanded && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="mt-4 pt-4 border-t border-gold/20">
+                            <ul className="space-y-2">
+                              {service.details.map((detail, idx) => (
+                                <li key={idx} className="flex items-start space-x-2 text-sm">
+                                  <span className="text-gold mt-1">•</span>
+                                  <span className="text-gray-300">{detail}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </motion.div>
                       )}
-                    </motion.div>
+                    </AnimatePresence>
                   </div>
-                  <p className="text-gray-200 mb-4">{service.description}</p>
-                </button>
-
-                <AnimatePresence>
-                  {isExpanded && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-6 pb-6 border-t border-gold/20 pt-4">
-                        <ul className="space-y-2 mb-4">
-                          {service.details.map((detail, idx) => (
-                            <motion.li
-                              key={idx}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: idx * 0.1 }}
-                              className="flex items-start space-x-2 text-gray-200"
-                            >
-                              <span className="text-gold mt-1">•</span>
-                              <span>{detail}</span>
-                            </motion.li>
-                          ))}
-                        </ul>
-                        {service.highlight && (
-                          <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="text-gold font-semibold italic border-l-4 border-gold pl-4 py-2"
-                          >
-                            {service.highlight}
-                          </motion.p>
-                        )}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
-          </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="mt-12 text-center max-w-4xl mx-auto"
-        >
-          <p className="text-gray-200 leading-relaxed">
-            All tests are conducted in globally accredited laboratories, following international clinical standards.
-            Each report is reviewed by expert molecular pathologists and delivered with clear, actionable insights 
-            for confident clinical decision-making.
-          </p>
-        </motion.div>
       </div>
     </section>
   );
 }
-
