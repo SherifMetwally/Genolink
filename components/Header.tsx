@@ -12,7 +12,10 @@ const navItems = [
   { id: 'services', label: 'Services' },
   { id: 'sample-requirements', label: 'Sample Requirements' },
   { id: 'why-genolink', label: 'Why Genolink' },
+  { id: 'physicians', label: 'For Physicians' },
+  { id: 'patients', label: 'For Patients' },
   { id: 'partners', label: 'Partners' },
+  { id: 'collaboration', label: 'Collaboration' },
   { id: 'faq', label: 'FAQ' },
   { id: 'contact', label: 'Contact' },
 ];
