@@ -11,7 +11,8 @@ import {
   FaChevronUp,
   FaMicroscope,
   FaHeartbeat,
-  FaSyringe
+  FaSyringe,
+  FaClipboardCheck
 } from 'react-icons/fa';
 import Image from 'next/image';
 import { getImagePath } from '@/lib/utils';
@@ -26,6 +27,19 @@ interface Service {
 }
 
 const services: Service[] = [
+  {
+    id: 'complete-oncology-diagnostic',
+    icon: FaClipboardCheck,
+    title: 'Complete Oncology Diagnostic Support',
+    featured: true,
+    description: 'Integrated pathology services offering a seamless diagnostic workflow for comprehensive cancer care.',
+    details: [
+      'Pathology Services',
+      'Expert Pathology Review (Second Opinion)',
+      'Digital Pathology & Remote Consultations',
+      'Immunohistochemistry (IHC)',
+    ],
+  },
   {
     id: 'solid-tumor-profiling',
     icon: FaDna,
@@ -265,7 +279,7 @@ export default function Services() {
                           <Icon className="text-2xl text-gold" />
                         </div>
                       </div>
-                      <div className="flex-1">
+                      <div className={`flex-1 ${service.featured ? 'pr-20' : ''}`}>
                         <div className="flex items-center gap-2 mb-2">
                           <h3 className="text-xl font-bold text-white">{service.title}</h3>
                         </div>
