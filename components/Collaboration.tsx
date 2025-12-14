@@ -49,8 +49,7 @@ export default function Collaboration() {
                 transition={{ delay: 0.2, duration: 0.8 }}
                 className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed"
               >
-                Genolink welcomes partnerships with healthcare providers, hospitals, and research institutions 
-                interested in genomic testing and precision medicine programs.
+                Genolink welcomes partnerships with healthcare providers, hospitals, and research institutions seeking to advance oncology and precision genomic diagnostics.
               </motion.p>
 
               <motion.p
