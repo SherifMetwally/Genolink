@@ -14,6 +14,7 @@ const faqs = [
     id: 'turnaround',
     question: 'What is the turnaround time?',
     answer: 'Oncology profiling: 20-25 days • Leukemia panels: 10–15 days • IHC: 10 days • Hereditary testing: 14–21 days.',
+    isList: true,
   },
   {
     id: 'logistics',
@@ -115,9 +116,20 @@ export default function FAQ() {
                       >
                         <div className="px-6 pb-6 pt-0">
                           <div className="border-t border-gold/20 pt-4">
-                            <p className="text-gray-200 leading-relaxed">
-                              {faq.answer}
-                            </p>
+                            {faq.isList ? (
+                              <ul className="space-y-2">
+                                {faq.answer.split(' • ').map((item, index) => (
+                                  <li key={index} className="flex items-start space-x-2 text-gray-200 leading-relaxed">
+                                    <span className="text-gold mt-1">•</span>
+                                    <span>{item}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p className="text-gray-200 leading-relaxed">
+                                {faq.answer}
+                              </p>
+                            )}
                           </div>
                         </div>
                       </motion.div>

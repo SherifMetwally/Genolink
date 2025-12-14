@@ -7,28 +7,28 @@ import { getImagePath } from '@/lib/utils';
 
 export default function OncoHematologyDetail() {
   const inclusions = [
-    'DNA Mutations: SNVs, indels',
-    'Copy Number Variations (CNVs)',
-    'RNA-based Fusion Detection',
-    'Complex Rearrangements & Translocations',
-    'Guideline-based (NCCN/ELN) therapeutic insights',
-    'Prognostic markers & risk groups',
-    'Available targeted therapies & clinical trials',
+    'DNA Mutations: SNVs, indels.',
+    'Copy Number Variations (CNVs).',
+    'RNA-based Fusion Detection.',
+    'Complex Rearrangements & Translocations.',
+    'Guideline-based (NCCN/ELN) therapeutic insights.',
+    'Prognostic markers & risk groups.',
+    'Available targeted therapies & clinical trials.',
   ];
 
   const clinicalValues = [
-    'Supports precise classification of leukemias and lymphomas',
-    'Improves diagnostic accuracy in ambiguous or complex cases',
-    'Enables identification of targeted therapy options',
-    'Aligns with NCCN and ELN recommendations',
-    'Helps clinicians make confident treatment decisions',
+    'Supports precise classification of leukemias and lymphomas.',
+    'Improves diagnostic accuracy in ambiguous or complex cases.',
+    'Enables identification of targeted therapy options.',
+    'Aligns with NCCN and ELN recommendations.',
+    'Helps clinicians make confident treatment decisions.',
   ];
 
   const rnaDetections = [
-    'Gene fusions & translocations (e.g., BCR-ABL1, KMT2A, ETV6, IGH rearrangements)',
-    'Cryptic or complex rearrangements missed by DNA',
-    'Splice variants and expression-driven events',
-    'Actionable driver alterations with therapeutic relevance',
+    'Gene fusions & translocations (e.g., BCR-ABL1, KMT2A, ETV6, IGH rearrangements).',
+    'Cryptic or complex rearrangements missed by DNA.',
+    'Splice variants and expression-driven events.',
+    'Actionable driver alterations with therapeutic relevance.',
   ];
 
   const faqs = [
