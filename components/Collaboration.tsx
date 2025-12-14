@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaHandshake, FaHospital, FaUniversity, FaEnvelope } from 'react-icons/fa';
+import { FaHandshake, FaHospital, FaUniversity, FaEnvelope, FaArrowRight } from 'react-icons/fa';
 import Image from 'next/image';
 import { getImagePath } from '@/lib/utils';
 
@@ -80,22 +80,101 @@ export default function Collaboration() {
             </motion.div>
           </div>
 
+          {/* Ready to Collaborate Section */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-gold/10 border-2 border-gold rounded-lg p-8 text-center"
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="mb-8"
           >
-            <FaEnvelope className="text-5xl text-gold mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-gold mb-4">For Partnership Inquiries:</h3>
-            <a
-              href="mailto:collaborate@genolink.com"
-              className="text-xl text-gold hover:text-gold underline transition-colors"
-            >
-              📧 collaborate@genolink.com
-            </a>
+            <div className="bg-gold/10 border-2 border-gold rounded-xl p-8 md:p-10 text-center mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-gold mb-4">
+                Ready to Collaborate?
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              {/* Hospitals & Healthcare Institutions */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+                className="bg-lab-blue-dark/40 backdrop-blur-sm border border-gold/20 rounded-xl p-8 md:p-10"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <FaHospital className="text-3xl text-gold" />
+                  <h4 className="text-xl md:text-2xl font-bold text-gold">
+                    For Hospitals & Healthcare Institutions
+                  </h4>
+                </div>
+                <motion.a
+                  href="mailto:Customer.service@geno-link.com"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 bg-gold/20 text-gold px-6 py-3 rounded-lg font-semibold text-lg hover:bg-gold/30 transition-colors border border-gold/30 mt-4"
+                >
+                  Request a Meeting
+                  <FaArrowRight />
+                </motion.a>
+              </motion.div>
+
+              {/* General Partnership Inquiries */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+                className="bg-lab-blue-dark/40 backdrop-blur-sm border border-gold/20 rounded-xl p-8 md:p-10"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <FaHandshake className="text-3xl text-gold" />
+                  <h4 className="text-xl md:text-2xl font-bold text-gold">
+                    General Partnership Inquiries
+                  </h4>
+                </div>
+                <motion.a
+                  href="mailto:Info@geno-link.comx  "
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 bg-gold/20 text-gold px-6 py-3 rounded-lg font-semibold text-lg hover:bg-gold/30 transition-colors border border-gold/30 mt-4"
+                >
+                  Contact Us
+                  <FaArrowRight />
+                </motion.a>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Email Contacts */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="bg-lab-blue-dark/40 backdrop-blur-sm border border-gold/20 rounded-xl p-8 md:p-10"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <FaEnvelope className="text-3xl text-gold" />
+              <h3 className="text-2xl md:text-3xl font-bold text-gold">Contact Us</h3>
+            </div>
+            <div className="space-y-4">
+              <a
+                href="mailto:Customer.service@geno-link.com"
+                className="flex items-center gap-3 text-lg md:text-xl text-gray-200 hover:text-gold transition-colors"
+              >
+                <FaEnvelope className="text-gold" />
+                <span>Customer.service@geno-link.com</span>
+              </a>
+              <a
+                href="mailto:Info@geno-link.com"
+                className="flex items-center gap-3 text-lg md:text-xl text-gray-200 hover:text-gold transition-colors"
+              >
+                <FaEnvelope className="text-gold" />
+                <span>Info@geno-link.com</span>
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
