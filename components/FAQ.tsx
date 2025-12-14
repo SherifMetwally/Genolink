@@ -8,12 +8,12 @@ const faqs = [
   {
     id: 'regions',
     question: 'Which regions does Genolink serve?',
-    answer: 'We support clinicians and hospitals across Egypt, GCC countries, and the wider Middle East.',
+    answer: 'We support clinicians and hospitals across Egypt, Libya, North Africa, GCC & the Middle East.',
   },
   {
     id: 'turnaround',
     question: 'What is the turnaround time?',
-    answer: 'Oncology profiling: 20-25 days • Leukemia panels: 10–15 days • IHC: 10 days • Hereditary testing: 14–21 days',
+    answer: 'Oncology profiling: 20-25 days • Leukemia panels: 10–15 days • IHC: 10 days • Hereditary testing: 14–21 days.',
   },
   {
     id: 'logistics',

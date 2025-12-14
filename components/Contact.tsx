@@ -145,10 +145,10 @@ export default function Contact() {
             className="text-center bg-gold/10 rounded-lg p-6 border border-gold/30"
           >
             <p className="text-white text-lg font-semibold mb-2">
-              Serving healthcare providers across Egypt, GCC, and the wider Middle East
+              Serving healthcare providers across Egypt, Libya, North Africa, GCC & the Middle East.
             </p>
             <p className="text-gray-300 text-sm">
-              Additional GCC contact points available upon request
+              Additional GCC contact points available upon request.
             </p>
           </motion.div>
         </div>
