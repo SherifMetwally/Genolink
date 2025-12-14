@@ -8,31 +8,31 @@ import { getImagePath } from '@/lib/utils';
 const benefits = [
   {
     icon: FaDna,
-    text: 'Comprehensive genomic testing across solid tumors and hematologic malignancies',
+    text: 'Comprehensive genomic testing across solid tumors and hematologic malignancies.',
   },
   {
     icon: FaVial,
-    text: 'Tissue-based and liquid biopsy testing options',
+    text: 'Tissue-based and liquid biopsy testing options.',
   },
   {
     icon: FaFileAlt,
-    text: 'High-quality, clinical-grade reports with clear interpretation',
+    text: 'High-quality, clinical-grade reports with clear interpretation.',
   },
   {
     icon: FaMicroscope,
-    text: 'Access to advanced biomarkers, including HRD, TMB, MSI, PD-L1, and HER2',
+    text: 'Access to advanced biomarkers, including HRD, TMB, MSI, PD-L1, and HER2.',
   },
   {
     icon: FaClipboardCheck,
-    text: 'Integrated pathology and molecular diagnostics support',
+    text: 'Integrated pathology and molecular diagnostics support.',
   },
   {
     icon: FaUsers,
-    text: 'Scientific support for case discussion and tumor boards',
+    text: 'Scientific support for case discussion and tumor boards.',
   },
   {
     icon: FaShippingFast,
-    text: 'End-to-end sample coordination and logistics',
+    text: 'End-to-end sample coordination and logistics.',
   },
 ];
 

@@ -9,17 +9,17 @@ const features = [
   {
     icon: FaUserMd,
     title: 'Medical Supervision',
-    description: 'All tests are conducted under medical supervision',
+    description: 'All tests are requested and supervised by your physician.',
   },
   {
     icon: FaShieldAlt,
     title: 'Accredited Laboratories',
-    description: 'Internationally accredited laboratories analyze your DNA',
+    description: 'Testing is performed at internationally accredited laboratories.',
   },
   {
     icon: FaLock,
     title: 'Confidential Results',
-    description: 'Your results remain fully confidential and explained by your physician',
+    description: 'Your results are confidential and shared only with you and your physician.',
   },
 ];
 
@@ -75,10 +75,18 @@ export default function ForPatients() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.8 }}
+                className="text-lg md:text-xl text-gray-200 leading-relaxed mb-4"
+              >
+                Genolink works closely with your physician to provide reliable genetic testing through internationally accredited laboratories, helping your doctor better understand your condition and choose the most appropriate care for you.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.8 }}
                 className="text-lg md:text-xl text-gray-200 leading-relaxed"
               >
-                Genolink connects you with internationally accredited laboratories that analyze your DNA 
-                to provide clear, clinically actionable insights about your condition or genetic risks.
+                Genetic testing can offer valuable insights, but results are always interpreted and explained by your treating physician as part of your medical care.
               </motion.p>
             </motion.div>
             <motion.div
