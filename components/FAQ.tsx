@@ -2,24 +2,62 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaQuestionCircle, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaQuestionCircle, FaChevronDown, FaChevronUp, FaEnvelope } from 'react-icons/fa';
 
 const faqs = [
   {
-    id: 'regions',
-    question: 'Which regions does Genolink serve?',
-    answer: 'We support clinicians and hospitals across Egypt, Libya, North Africa, GCC & the Middle East.',
+    id: 'genetic-testing',
+    question: 'What is genetic testing?',
+    answer: 'Genetic testing analyzes specific genes to help your physician better understand your condition, guide diagnosis, or support treatment decisions. All tests are requested and interpreted by your treating physician.',
+  },
+  {
+    id: 'medical-advice',
+    question: 'Does Genolink provide direct medical advice?',
+    answer: 'No. Genolink does not replace your physician. All tests are ordered, interpreted, and explained by your doctor as part of your medical care.',
+  },
+  {
+    id: 'samples',
+    question: 'What type of samples are required?',
+    answer: 'Blood samples • Tissue samples (such as biopsy or FFPE tissue)',
+    isList: true,
+    note: 'Your physician will determine the appropriate test and sample type.',
+  },
+  {
+    id: 'where-tests',
+    question: 'Where are the tests performed?',
+    answer: 'All tests are performed at internationally accredited partner laboratories in the United States and Europe, following strict quality and regulatory standards.',
+  },
+  {
+    id: 'results-delivery',
+    question: 'How are my results delivered?',
+    answer: 'Test results are shared directly with your physician, who will explain them to you clearly and discuss their clinical relevance.',
+  },
+  {
+    id: 'confidentiality',
+    question: 'Is my information kept confidential?',
+    answer: 'Yes. All samples and results are handled with strict confidentiality and data protection standards. Your information is shared only with your physician and authorized medical teams.',
   },
   {
     id: 'turnaround',
-    question: 'What is the turnaround time?',
-    answer: 'Oncology profiling: 20-25 days • Leukemia panels: 10–15 days • IHC: 10 days • Hereditary testing: 14–21 days.',
-    isList: true,
+    question: 'How long does it take to receive results?',
+    answer: 'Turnaround time depends on the type of test requested. Your physician or care team will inform you of the expected timeline.',
   },
   {
-    id: 'logistics',
-    question: 'Do you provide sample pickup across borders?',
-    answer: 'Yes — we coordinate international sample logistics within the Middle East.',
+    id: 'referral',
+    question: 'Do I need a referral from a doctor?',
+    answer: 'Yes. All genetic tests provided through Genolink require a physician request and medical supervision.',
+  },
+  {
+    id: 'treatment-guide',
+    question: 'Can genetic testing help guide treatment decisions?',
+    answer: 'Genetic testing may provide valuable information to support diagnosis or treatment planning. Final medical decisions are always made by your treating physician.',
+  },
+  {
+    id: 'contact',
+    question: 'Who can I contact if I have questions?',
+    answer: 'For general inquiries, you may contact our team at: • customer.service@geno-link.com',
+    isList: true,
+    note: 'For medical questions, please consult your physician.',
   },
 ];
 
@@ -117,14 +155,45 @@ export default function FAQ() {
                         <div className="px-6 pb-6 pt-0">
                           <div className="border-t border-gold/20 pt-4">
                             {faq.isList ? (
-                              <ul className="space-y-2">
-                                {faq.answer.split(' • ').map((item, index) => (
-                                  <li key={index} className="flex items-start space-x-2 text-gray-200 leading-relaxed">
-                                    <span className="text-gold mt-1">•</span>
-                                    <span>{item}</span>
-                                  </li>
-                                ))}
-                              </ul>
+                              <div>
+                                <ul className="space-y-2 mb-3">
+                                  {faq.answer.split(' • ').map((item, index) => {
+                                    const emailMatch = item.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/);
+                                    if (emailMatch) {
+                                      const email = emailMatch[1];
+                                      const beforeEmail = item.substring(0, item.indexOf(email));
+                                      const afterEmail = item.substring(item.indexOf(email) + email.length);
+                                      return (
+                                        <li key={index} className="flex items-start space-x-2 text-gray-200 leading-relaxed">
+                                          <span className="text-gold mt-1">•</span>
+                                          <span>
+                                            {beforeEmail}
+                                            <a
+                                              href={`mailto:${email}`}
+                                              className="text-gold hover:text-gold-light inline-flex items-center gap-1 underline"
+                                            >
+                                              <FaEnvelope className="text-sm" />
+                                              {email}
+                                            </a>
+                                            {afterEmail}
+                                          </span>
+                                        </li>
+                                      );
+                                    }
+                                    return (
+                                      <li key={index} className="flex items-start space-x-2 text-gray-200 leading-relaxed">
+                                        <span className="text-gold mt-1">•</span>
+                                        <span>{item}</span>
+                                      </li>
+                                    );
+                                  })}
+                                </ul>
+                                {faq.note && (
+                                  <p className="text-gray-300 text-sm italic mt-3">
+                                    {faq.note}
+                                  </p>
+                                )}
+                              </div>
                             ) : (
                               <p className="text-gray-200 leading-relaxed">
                                 {faq.answer}
