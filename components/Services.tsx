@@ -30,15 +30,84 @@ const services: Service[] = [
   {
     id: 'somatic-tumor-profiling',
     icon: FaDna,
-    title: 'Somatic Tumor Profiling',
+    title: 'Somatic Tumor Profiling (Comprehensive)',
     featured: true,
-    description: 'Tissue or Liquid — Same High Precision. Whether the sample is FFPE tumor tissue or liquid biopsy, Genolink provides a full somatic genomic profile using advanced DNA + RNA sequencing.',
+    description: 'Somatic Tumor Profiling provides comprehensive genomic analysis for solid tumors using FFPE tissue or liquid biopsy. Through advanced DNA and RNA sequencing, this approach identifies',
     details: [
+      'actionable mutations.',
+      'Gene fusions & complex rearrangements.',
+      'HRD score & genomic instability markers.',
+      'CNVs & splice variants.',
+      'key immunotherapy biomarkers, including PD-L1 expression by immunohistochemistry (IHC), TMB, and MSI.',
+      'Treatment-matched insights & clinical trials.',
+      'to support precision treatment selection and clinical decision-making.',
+    ],
+  },
+  {
+    id: 'tumor-specific-panels',
+    icon: FaLungs,
+    title: 'Tumor-Specific Panels',
+    featured: true,
+    description: 'Focused Genomic Testing by Tumor Type. Targeted genomic panels designed for specific tumor types, providing focused, clinically actionable insights with optimized turnaround time and cost efficiency.',
+    details: [
+      'Examples include:',
+      'Breast cancer panels',
+      'Lung cancer panels',
+      'Colorectal cancer panels',
+      'Ovarian cancer panels',
+      'CNS tumor panels',
+      '',
+      'Key features:',
+      'Tumor-focused gene content',
+      'DNA ± RNA–based assays (as applicable)',
+      'Actionable mutations & key biomarkers',
+      'Faster turnaround time',
+    ],
+  },
+  {
+    id: 'sarcoma-genomics',
+    icon: FaDna,
+    title: 'Sarcoma Genomics',
+    featured: true,
+    description: 'Bone & Soft Tissue Sarcomas. Comprehensive genomic profiling for bone and soft tissue sarcomas, with a strong focus on fusion-driven tumors. Using advanced DNA and RNA sequencing, we identify diagnostic and therapeutically relevant gene fusions, copy number alterations, and actionable mutations to support accurate classification and treatment selection.',
+    details: [
+      'Key features:',
+      'Soft tissue & bone sarcomas',
+      'Fusion-driven tumors (EWSR1, SS18, CIC, BCOR, NTRK, etc.)',
+      'DNA & RNA–based assays',
+      'Diagnostic & therapeutic insights',
+    ],
+  },
+  {
+    id: 'liquid-oncology',
+    icon: FaVial,
+    title: 'Liquid Oncology',
+    featured: false,
+    description: 'Blood-based genomic profiling using circulating tumor DNA (ctDNA) to provide real-time insights into tumor biology. This approach supports treatment selection, disease monitoring, and resistance detection across solid tumors.',
+    details: [
+      'Key features:',
+      'Non-invasive blood testing',
       'Actionable mutations',
-      'Fusions & complex rearrangements',
-      'CNVs & splice variants',
-      'Immunotherapy biomarkers',
-      'Treatment-matched insights & clinical trials',
+      'Treatment response & disease monitoring',
+      'Resistance and relapse detection',
+    ],
+  },
+  {
+    id: 'onco-hematology',
+    icon: FaDna,
+    title: 'Onco-Hematology',
+    featured: false,
+    description: 'Hematologic Malignancy Genomics. Comprehensive genomic profiling for hematologic malignancies to support accurate diagnosis, risk stratification, prognosis, and treatment selection.',
+    details: [
+      'Key features:',
+      'Leukemia',
+      'Acute & chronic myeloid leukemia (AML, CML)',
+      'Acute & chronic lymphoid leukemia (ALL, CLL)',
+      'Lymphoma',
+      'Multiple myeloma',
+      'DNA and RNA–based assays',
+      'Gene fusions & rearrangements',
+      'Prognostic and predictive biomarkers'
     ],
   },
   {
@@ -46,121 +115,105 @@ const services: Service[] = [
     icon: FaHeartbeat,
     title: 'Hereditary Cancer Testing',
     featured: true,
-    description: 'Empowering Early Detection & Prevention. Our hereditary cancer panels identify inherited mutations linked to breast, ovarian, colorectal, prostate, pancreatic cancers, and more.',
+    description: 'Supporting Early Detection and Prevention. Our hereditary cancer panels identify inherited mutations associated with breast, ovarian, colorectal, prostate, pancreatic cancers, and more.',
     details: [
       'Screening strategies',
       'Family risk assessment',
       'Preventive care decisions',
     ],
   },
-  {
-    id: 'complete-oncology-diagnostic',
-    icon: FaClipboardCheck,
-    title: 'Complete Oncology Diagnostic Support',
-    featured: true,
-    description: 'Integrated Pathology Services. Genolink offers a seamless diagnostic workflow combining genomics with expert pathology to deliver the most complete diagnostic picture for each patient.',
-    details: [
-      'Pathology Services',
-      'Expert Pathology Review (Second Opinion)',
-      'Immunohistochemistry (IHC)',
-      'Digital Pathology & Remote Consultations',
-    ],
-  },
-  {
-    id: 'tumor-panels',
-    icon: FaLungs,
-    title: 'Tumor-Specific Panels',
-    featured: false,
-    description: 'Targeted genomic panels designed for specific cancer types.',
-    details: [
-      'Breast Cancer',
-      'Lung Cancer',
-      'Colorectal Cancer',
-      'Prostate Cancer',
-      'Ovarian Cancer',
-      'Thyroid Cancer',
-      'Gastrointestinal Tumors',
-    ],
-  },
-  {
-    id: 'immunotherapy-biomarkers',
-    icon: FaFlask,
-    title: 'Immunotherapy Biomarkers',
-    featured: false,
-    description: 'Comprehensive biomarker testing to guide immunotherapy decisions.',
-    details: [
-      'PD-L1 IHC',
-      'MSI / MMR',
-      'TMB',
-    ],
-  },
-  {
-    id: 'liquid-biopsy',
-    icon: FaVial,
-    title: 'Liquid Biopsy (ctDNA)',
-    featured: false,
-    description: 'Non-invasive blood-based genomic testing for cancer detection and monitoring.',
-    details: [
-      'Detection of actionable mutations',
-      'Monitoring disease progression',
-      'Identifying resistance mechanisms',
-    ],
-  },
-  {
-    id: 'leukemia-panels',
-    icon: FaDna,
-    title: 'Leukemia Genomic Panels',
-    featured: false,
-    description: 'Comprehensive genomic panels for acute and chronic leukemias.',
-    details: [
-      'AML, ALL, CLL, CML',
-      'FLT3, NPM1, IDH1/2, JAK2, TP53, DNMT3A, and more',
-    ],
-  },
-  {
-    id: 'lymphoma-diagnostics',
-    icon: FaMicroscope,
-    title: 'Lymphoma Diagnostics',
-    featured: false,
-    description: 'Advanced testing for B-cell and T-cell lymphomas.',
-    details: [
-      'B-cell & T-cell NGS panels',
-      'BCR/TCR clonality testing',
-      'Fusions & rearrangements',
-    ],
-  },
-  {
-    id: 'myeloma',
-    icon: FaSyringe,
-    title: 'Myeloma & Plasma Disorders',
-    featured: false,
-    description: 'Specialized testing for multiple myeloma and related plasma cell disorders.',
-    details: [
-      'Myeloma NGS',
-      'FISH for risk markers (17p, t(4;14), t(11;14)…)',
-    ],
-  },
-  {
-    id: 'cytogenetics',
-    icon: FaFlask,
-    title: 'Cytogenetics & FISH',
-    featured: false,
-    description: 'Classical and molecular cytogenetic analysis for hematologic malignancies.',
-    details: [
-      'Karyotype analysis',
-      'Hematologic FISH panels (BCR-ABL, PML-RARA, KMT2A…)',
-    ],
-  },
-  {
-    id: 'mrd',
-    icon: FaMicroscope,
-    title: 'Minimal Residual Disease (MRD)',
-    featured: false,
-    description: 'Ultra-sensitive detection of residual cancer cells to monitor treatment response.',
-    details: [
-      'NGS-based MRD',
-    ],
-  },
+  // {
+  //   id: 'complete-oncology-diagnostic',
+  //   icon: FaClipboardCheck,
+  //   title: 'Complete Oncology Diagnostic Support',
+  //   featured: true,
+  //   description: 'Integrated Pathology Services. Genolink offers a seamless diagnostic workflow combining genomics with expert pathology to deliver the most complete diagnostic picture for each patient.',
+  //   details: [
+  //     'Pathology Services',
+  //     'Expert Pathology Review (Second Opinion)',
+  //     'Immunohistochemistry (IHC)',
+  //     'Digital Pathology & Remote Consultations',
+  //   ],
+  // },
+  // {
+  //   id: 'immunotherapy-biomarkers',
+  //   icon: FaFlask,
+  //   title: 'Immunotherapy Biomarkers',
+  //   featured: false,
+  //   description: 'Comprehensive biomarker testing to guide immunotherapy decisions.',
+  //   details: [
+  //     'PD-L1 IHC',
+  //     'MSI / MMR',
+  //     'TMB',
+  //   ],
+  // },
+  // {
+  //   id: 'liquid-biopsy',
+  //   icon: FaVial,
+  //   title: 'Liquid Biopsy (ctDNA)',
+  //   featured: false,
+  //   description: 'Non-invasive blood-based genomic testing for cancer detection and monitoring.',
+  //   details: [
+  //     'Detection of actionable mutations',
+  //     'Monitoring disease progression',
+  //     'Identifying resistance mechanisms',
+  //   ],
+  // },
+  // {
+  //   id: 'leukemia-panels',
+  //   icon: FaDna,
+  //   title: 'Leukemia Genomic Panels',
+  //   featured: false,
+  //   description: 'Comprehensive genomic panels for acute and chronic leukemias.',
+  //   details: [
+  //     'AML, ALL, CLL, CML',
+  //     'FLT3, NPM1, IDH1/2, JAK2, TP53, DNMT3A, and more',
+  //   ],
+  // },
+  // {
+  //   id: 'lymphoma-diagnostics',
+  //   icon: FaMicroscope,
+  //   title: 'Lymphoma Diagnostics',
+  //   featured: false,
+  //   description: 'Advanced testing for B-cell and T-cell lymphomas.',
+  //   details: [
+  //     'B-cell & T-cell NGS panels',
+  //     'BCR/TCR clonality testing',
+  //     'Fusions & rearrangements',
+  //   ],
+  // },
+  // {
+  //   id: 'myeloma',
+  //   icon: FaSyringe,
+  //   title: 'Myeloma & Plasma Disorders',
+  //   featured: false,
+  //   description: 'Specialized testing for multiple myeloma and related plasma cell disorders.',
+  //   details: [
+  //     'Myeloma NGS',
+  //     'FISH for risk markers (17p, t(4;14), t(11;14)…)',
+  //   ],
+  // },
+  // {
+  //   id: 'cytogenetics',
+  //   icon: FaFlask,
+  //   title: 'Cytogenetics & FISH',
+  //   featured: false,
+  //   description: 'Classical and molecular cytogenetic analysis for hematologic malignancies.',
+  //   details: [
+  //     'Karyotype analysis',
+  //     'Hematologic FISH panels (BCR-ABL, PML-RARA, KMT2A…)',
+  //   ],
+  // },
+  // {
+  //   id: 'mrd',
+  //   icon: FaMicroscope,
+  //   title: 'Minimal Residual Disease (MRD)',
+  //   featured: false,
+  //   description: 'Ultra-sensitive detection of residual cancer cells to monitor treatment response.',
+  //   details: [
+  //     'NGS-based MRD',
+  //   ],
+  // },
 ];
 
 const containerVariants = {
@@ -321,12 +374,31 @@ export default function Services() {
                         >
                           <div className="mt-4 pt-4 border-t border-gold/20">
                             <ul className="space-y-2">
-                              {service.details.map((detail, idx) => (
-                                <li key={idx} className="flex items-start space-x-2 text-sm">
-                                  <span className="text-gold mt-1">•</span>
-                                  <span className="text-gray-300">{detail}</span>
-                                </li>
-                              ))}
+                              {service.details.map((detail, idx) => {
+                                // Check if it's a section header (contains emoji or ends with colon)
+                                const isSectionHeader = detail.includes('📋') || detail.includes('⚡') || (detail.endsWith(':') && detail.length < 30);
+                                // Check if it's an empty line
+                                const isEmpty = detail.trim() === '';
+                                
+                                if (isEmpty) {
+                                  return <li key={idx} className="h-2"></li>;
+                                }
+                                
+                                if (isSectionHeader) {
+                                  return (
+                                    <li key={idx} className="text-sm font-bold text-white mt-3 mb-1">
+                                      {detail}
+                                    </li>
+                                  );
+                                }
+                                
+                                return (
+                                  <li key={idx} className="flex items-start space-x-2 text-sm">
+                                    <span className="text-gold mt-1">•</span>
+                                    <span className="text-gray-300">{detail}</span>
+                                  </li>
+                                );
+                              })}
                             </ul>
                           </div>
                         </motion.div>
