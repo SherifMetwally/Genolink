@@ -219,8 +219,7 @@ export default function Services() {
             Precision Genomics for Every Cancer Patient
           </p>
           <p className="text-lg text-gray-200 max-w-4xl mx-auto mb-6">
-            At Genolink, we deliver next-generation oncology diagnostics designed to empower clinicians with fast, accurate, and actionable genomic insights—across both somatic and hereditary cancer testing.
-          </p>
+          At Genolink, we deliver next-generation oncology and onco-hematology diagnostics that empower clinicians with fast, accurate, and actionable genomic insights across tissue-based testing, liquid biopsy, and hereditary cancer analysis.          </p>
           <div className="section-divider mx-auto max-w-md"></div>
         </motion.div>
 

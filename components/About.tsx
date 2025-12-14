@@ -10,7 +10,7 @@ const aboutCards = [
     id: 'who',
     icon: FaDna,
     title: 'Who We Are',
-    content: 'Genolink is an Egypt-based precision diagnostics company specializing in Oncology and Onco-Hematology genomics. We collaborate with internationally accredited laboratories to provide state-of-the-art cancer testing solutions across Egypt, the GCC, and the broader Middle East.',
+    content: 'Genolink is an Egypt-based precision diagnostics company specializing in Oncology and Onco-Hematology genomics. We collaborate with internationally accredited laboratories to deliver clinically actionable, state-of-the-art cancer testing solutions across Egypt, the GCC, the broader Middle East, and North Africa',
   },
   {
     id: 'mission',
@@ -22,13 +22,18 @@ const aboutCards = [
     id: 'vision',
     icon: FaEye,
     title: 'Our Vision',
-    content: 'To become the leading regional genomics partner for precision oncology and hematology diagnostics.',
+    content: 'To become the leading trusted regional genomics partner for precision oncology and hematology diagnostics.',
   },
   {
     id: 'values',
     icon: FaHeart,
     title: 'Our Values',
-    content: 'Excellence: Clinical-grade quality and accuracy\nSpeed: Optimized regional logistics and fast turnaround\nInnovation: Access to cutting-edge global technologies\nSupport: Strong scientific and medical consultation services',
+    values: [
+      { label: 'Excellence', text: 'Clinical-grade quality and accuracy' },
+      { label: 'Speed', text: 'Optimized regional logistics and fast turnaround times' },
+      { label: 'Innovation', text: 'Access to cutting-edge global technologies' },
+      { label: 'Support', text: 'Strong scientific and medical consultation services' },
+    ],
   },
 ];
 
@@ -108,9 +113,8 @@ export default function About() {
             </motion.div>
             <div>
               <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
-                Genolink is an Egypt-based precision diagnostics company specializing in Oncology and Onco-Hematology genomics. 
-                We collaborate with internationally accredited laboratories to provide state-of-the-art cancer testing solutions 
-                across Egypt,Libya,North Africa, the GCC, and the broader Middle East.
+              Genolink is an Egypt-based precision diagnostics company dedicated to advancing cancer care through cutting-edge Oncology and Onco-Hematology genomics.
+              We partner with internationally accredited laboratories to deliver clinically actionable, state-of-the-art cancer testing solutions across Egypt, the GCC, and the wider Middle East and North Africa
               </p>
             </div>
           </motion.div>
@@ -140,7 +144,17 @@ export default function About() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold mb-3 text-gold">{card.title}</h3>
-                      <p className="text-gray-200 leading-relaxed whitespace-pre-line">{card.content}</p>
+                      {card.values ? (
+                        <ul className="space-y-3">
+                          {card.values.map((value: any, idx: number) => (
+                            <li key={idx} className="text-gray-200 leading-relaxed">
+                              <span className="font-semibold text-gold">{value.label}:</span> {value.text}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-gray-200 leading-relaxed">{card.content}</p>
+                      )}
                     </div>
                   </div>
                 </motion.div>
