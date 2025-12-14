@@ -100,7 +100,7 @@ export default function Collaboration() {
                   Interested in partnering with Genolink?
                 </h4>
                 <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
-                  Let's work together to expand access to high-quality genomic diagnostics.
+                  Let&apos;s work together to expand access to high-quality genomic diagnostics.
                 </p>
               </div>
 

@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 export default function Logo({ className = '' }: { className?: string }) {
   const [imageError, setImageError] = useState(false);
@@ -16,12 +18,13 @@ export default function Logo({ className = '' }: { className?: string }) {
 
   return (
     <div className={`relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center ${className}`}>
-      <img
-        src="/logo.png"
+      <Image
+        src={getImagePath('logo.png')}
         alt="GenoLink Logo"
-        className="w-full h-full object-contain"
+        fill
+        className="object-contain"
         onError={() => setImageError(true)}
-        onLoad={() => setImageError(false)}
+        unoptimized
       />
     </div>
   );
