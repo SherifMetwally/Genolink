@@ -37,6 +37,17 @@ export default function Footer() {
             <p className="text-gray-300 text-sm mb-2">
               © {new Date().getFullYear()} GenoLink. All rights reserved.
             </p>
+            <p className="text-gray-400 text-xs mb-2">
+              Developed by{' '}
+              <a
+                href="https://www.linkedin.com/in/sherifmetwally"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold hover:text-gold-light underline transition-colors"
+              >
+                Sherif Metwally
+              </a>
+            </p>
             <button
               onClick={() => smoothScrollTo('home')}
               className="text-gold hover:text-gold underline text-sm transition-colors"
