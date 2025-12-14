@@ -58,98 +58,161 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-xl md:text-2xl text-center text-gray-200 leading-relaxed mb-2"
+              className="text-xl md:text-2xl text-center text-gray-200 leading-relaxed mb-8"
             >
               Genolink – Regional Headquarters (Egypt)
             </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            <motion.a
-              href="mailto:info@genolink.com"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold transition-all duration-300 text-center group"
-            >
-              <FaEnvelope className="text-4xl text-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-lg font-bold text-gold mb-2">General Inquiries</h3>
-              <p className="text-gray-200 text-sm">info@genolink.com</p>
-            </motion.a>
-
-            <motion.a
-              href="mailto:clinical@genolink.com"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.35, duration: 0.6 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold transition-all duration-300 text-center group"
-            >
-              <FaEnvelope className="text-4xl text-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-lg font-bold text-gold mb-2">Medical Support</h3>
-              <p className="text-gray-200 text-sm">clinical@genolink.com</p>
-            </motion.a>
-
-            <motion.a
-              href="mailto:businessdevelopment@genolink.com"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold transition-all duration-300 text-center group"
-            >
-              <FaEnvelope className="text-4xl text-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-lg font-bold text-gold mb-2">Business Partnerships</h3>
-              <p className="text-gray-200 text-sm">businessdevelopment@genolink.com</p>
-            </motion.a>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <motion.a
-              href="tel:+2001144311155"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.45, duration: 0.6 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold transition-all duration-300 text-center group"
-            >
-              <FaPhone className="text-4xl text-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-lg font-bold text-gold mb-2">Phone</h3>
-              <p className="text-gray-200 text-sm">+2001144311155</p>
-            </motion.a>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold transition-all duration-300 text-center"
-            >
-              <FaMapMarkerAlt className="text-4xl text-gold mx-auto mb-4" />
-              <h3 className="text-lg font-bold text-gold mb-2">Address</h3>
-              <p className="text-gray-200 text-sm">Cairo, Egypt</p>
-            </motion.div>
-          </div>
-
+          {/* Contact Information Card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-center bg-gold/10 rounded-lg p-6 border border-gold/30"
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="bg-lab-blue-dark/40 backdrop-blur-sm border border-gold/20 rounded-xl p-8 md:p-10 mb-8"
           >
-            <p className="text-white text-lg font-semibold mb-2">
-              Serving healthcare providers across Egypt, Libya, North Africa, GCC & the Middle East.
-            </p>
-            <p className="text-gray-300 text-sm">
-              Additional GCC contact points available upon request.
-            </p>
+            {/* General Inquiries */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="mb-8"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <FaEnvelope className="text-2xl text-gold" />
+                <h3 className="text-xl md:text-2xl font-bold text-gold">General Inquiries</h3>
+              </div>
+              <p className="text-gray-200 mb-3 leading-relaxed">
+                For general questions and information about Genolink services.
+              </p>
+              <a
+                href="mailto:customer.service@geno-link.com"
+                className="text-lg text-gold hover:text-gold-light transition-colors inline-flex items-center gap-2"
+              >
+                <FaEnvelope className="text-sm" />
+                <span>Email: customer.service@geno-link.com</span>
+              </a>
+            </motion.div>
+
+            {/* Divider */}
+            <div className="border-t border-gold/30 my-8"></div>
+
+            {/* Medical Support */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="mb-8"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl">🧑‍⚕️</span>
+                <h3 className="text-xl md:text-2xl font-bold text-gold">Medical Support</h3>
+              </div>
+              <p className="text-gray-200 mb-3 leading-relaxed">
+                For physicians, medical teams, test inquiries, and case discussions.
+              </p>
+              <a
+                href="mailto:medical@geno-link.com"
+                className="text-lg text-gold hover:text-gold-light transition-colors inline-flex items-center gap-2"
+              >
+                <FaEnvelope className="text-sm" />
+                <span>Email: medical@geno-link.com</span>
+              </a>
+            </motion.div>
+
+            {/* Divider */}
+            <div className="border-t border-gold/30 my-8"></div>
+
+            {/* Business Partnerships */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="mb-8"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl">🤝</span>
+                <h3 className="text-xl md:text-2xl font-bold text-gold">Business Partnerships</h3>
+              </div>
+              <p className="text-gray-200 mb-3 leading-relaxed">
+                For hospitals, healthcare institutions, and strategic collaborations.
+              </p>
+              <a
+                href="mailto:info@geno-link.com"
+                className="text-lg text-gold hover:text-gold-light transition-colors inline-flex items-center gap-2"
+              >
+                <FaEnvelope className="text-sm" />
+                <span>Email: info@geno-link.com</span>
+              </a>
+            </motion.div>
+
+            {/* Divider */}
+            <div className="border-t border-gold/30 my-8"></div>
+
+            {/* Phone */}
+            <motion.a
+              href="tel:+2001144311155"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+              whileHover={{ scale: 1.02 }}
+              className="block mb-8"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <FaPhone className="text-2xl text-gold" />
+                <h3 className="text-xl md:text-2xl font-bold text-gold">Phone</h3>
+              </div>
+              <p className="text-lg text-gold hover:text-gold-light transition-colors">
+                +20 011 443 111 55
+              </p>
+            </motion.a>
+
+            {/* Divider */}
+            <div className="border-t border-gold/30 my-8"></div>
+
+            {/* Address */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="mb-8"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <FaMapMarkerAlt className="text-2xl text-gold" />
+                <h3 className="text-xl md:text-2xl font-bold text-gold">Address</h3>
+              </div>
+              <p className="text-lg text-gray-200 leading-relaxed">
+                75 El Geish Road, Sporting, Alexandria, Egypt
+              </p>
+            </motion.div>
+
+            {/* Divider */}
+            <div className="border-t border-gold/30 my-8"></div>
+
+            {/* Regional Coverage */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.9, duration: 0.6 }}
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <FaGlobe className="text-2xl text-gold" />
+                <h3 className="text-xl md:text-2xl font-bold text-gold">Regional Coverage</h3>
+              </div>
+              <p className="text-lg text-gray-200 mb-3 leading-relaxed">
+                Serving healthcare providers across Egypt, Libya, North Africa, the GCC, and the Middle East.
+              </p>
+              <p className="text-gray-300 leading-relaxed">
+                Additional regional contact points available upon request.
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>
