@@ -32,7 +32,7 @@ const services: Service[] = [
     icon: FaDna,
     title: 'Somatic Tumor Profiling (Comprehensive)',
     featured: true,
-    description: 'Somatic Tumor Profiling provides comprehensive genomic analysis for solid tumors using FFPE tissue or liquid biopsy. Through advanced DNA and RNA sequencing, this approach identifies',
+    description: 'Somatic Tumor Profiling provides comprehensive genomic analysis for solid tumors using FFPE tissue or liquid biopsy. Through advanced DNA and RNA sequencing, this approach identifies.',
     details: [
       'actionable mutations.',
       'Gene fusions & complex rearrangements.',
@@ -51,17 +51,17 @@ const services: Service[] = [
     description: 'Focused Genomic Testing by Tumor Type. Targeted genomic panels designed for specific tumor types, providing focused, clinically actionable insights with optimized turnaround time and cost efficiency.',
     details: [
       'Examples include:',
-      'Breast cancer panels',
-      'Lung cancer panels',
-      'Colorectal cancer panels',
-      'Ovarian cancer panels',
-      'CNS tumor panels',
+      'Breast cancer panels.',
+      'Lung cancer panels.',
+      'Colorectal cancer panels.',
+      'Ovarian cancer panels.',
+      'CNS tumor panels.',
       '',
       'Key features:',
-      'Tumor-focused gene content',
-      'DNA ± RNA–based assays (as applicable)',
-      'Actionable mutations & key biomarkers',
-      'Faster turnaround time',
+      'Tumor-focused gene content.',
+      'DNA ± RNA–based assays (as applicable).',
+      'Actionable mutations & key biomarkers.',
+      'Faster turnaround time.',
     ],
   },
   {
@@ -72,24 +72,24 @@ const services: Service[] = [
     description: 'Bone & Soft Tissue Sarcomas. Comprehensive genomic profiling for bone and soft tissue sarcomas, with a strong focus on fusion-driven tumors. Using advanced DNA and RNA sequencing, we identify diagnostic and therapeutically relevant gene fusions, copy number alterations, and actionable mutations to support accurate classification and treatment selection.',
     details: [
       'Key features:',
-      'Soft tissue & bone sarcomas',
-      'Fusion-driven tumors (EWSR1, SS18, CIC, BCOR, NTRK, etc.)',
-      'DNA & RNA–based assays',
-      'Diagnostic & therapeutic insights',
+      'Soft tissue & bone sarcomas.',
+      'Fusion-driven tumors (EWSR1, SS18, CIC, BCOR, NTRK, etc.).',
+      'DNA & RNA–based assays.',
+      'Diagnostic & therapeutic insights.',
     ],
   },
   {
     id: 'liquid-oncology',
     icon: FaVial,
-    title: 'Liquid Oncology',
+    title: 'Liquid Oncology (Liquid Biopsy)',
     featured: false,
     description: 'Blood-based genomic profiling using circulating tumor DNA (ctDNA) to provide real-time insights into tumor biology. This approach supports treatment selection, disease monitoring, and resistance detection across solid tumors.',
     details: [
       'Key features:',
-      'Non-invasive blood testing',
-      'Actionable mutations',
-      'Treatment response & disease monitoring',
-      'Resistance and relapse detection',
+      'Non-invasive blood testing.',
+      'Actionable mutations.',
+      'Treatment response & disease monitoring.',
+      'Resistance and relapse detection.',
     ],
   },
   {
@@ -97,17 +97,17 @@ const services: Service[] = [
     icon: FaDna,
     title: 'Onco-Hematology',
     featured: false,
-    description: 'Hematologic Malignancy Genomics. Comprehensive genomic profiling for hematologic malignancies to support accurate diagnosis, risk stratification, prognosis, and treatment selection.',
+    description: 'Hematologic Malignancy Genomics.\n Comprehensive genomic profiling for hematologic malignancies to support accurate diagnosis, risk stratification, prognosis, and treatment selection.',
     details: [
       'Key features:',
-      'Leukemia',
-      'Acute & chronic myeloid leukemia (AML, CML)',
-      'Acute & chronic lymphoid leukemia (ALL, CLL)',
-      'Lymphoma',
-      'Multiple myeloma',
-      'DNA and RNA–based assays',
-      'Gene fusions & rearrangements',
-      'Prognostic and predictive biomarkers'
+      'Leukemia.',
+      'Acute & chronic myeloid leukemia (AML, CML).',
+      'Acute & chronic lymphoid leukemia (ALL, CLL).',
+      'Lymphoma.',
+      'Multiple myeloma.',
+      'DNA and RNA–based assays.',
+      'Gene fusions & rearrangements.',
+      'Prognostic and predictive biomarkers.',
     ],
   },
   {
@@ -117,9 +117,9 @@ const services: Service[] = [
     featured: true,
     description: 'Supporting Early Detection and Prevention. Our hereditary cancer panels identify inherited mutations associated with breast, ovarian, colorectal, prostate, pancreatic cancers, and more.',
     details: [
-      'Screening strategies',
-      'Family risk assessment',
-      'Preventive care decisions',
+      'Screening strategies.',
+      'Family risk assessment.',
+      'Preventive care decisions.',
     ],
   },
   // {
@@ -351,7 +351,7 @@ export default function Services() {
                       </div>
                     </div>
 
-                    <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                    <p className="text-gray-300 mb-4 text-sm leading-relaxed whitespace-pre-line">
                       {service.description}
                     </p>
 
@@ -379,6 +379,20 @@ export default function Services() {
                                 const isSectionHeader = detail.includes('📋') || detail.includes('⚡') || (detail.endsWith(':') && detail.length < 30);
                                 // Check if it's an empty line
                                 const isEmpty = detail.trim() === '';
+                                // Check if it's a footer (starts with "to support" or similar, and is the last item)
+                                const isFooter = idx === service.details.length - 1 && 
+                                  (detail.toLowerCase().startsWith('to support') || 
+                                   detail.toLowerCase().startsWith('to ') ||
+                                   detail.toLowerCase().startsWith('supporting'));
+                                // Check if it's a sub-item (follows "Leukemia." or another sub-item, and starts with "Acute &")
+                                const prevItem = idx > 0 ? service.details[idx - 1] : '';
+                                const isSubItem = detail.startsWith('Acute &') && 
+                                  (prevItem === 'Leukemia.' || prevItem.startsWith('Acute &'));
+                                
+                                // Skip footer items - they'll be rendered separately
+                                if (isFooter) {
+                                  return null;
+                                }
                                 
                                 if (isEmpty) {
                                   return <li key={idx} className="h-2"></li>;
@@ -392,6 +406,16 @@ export default function Services() {
                                   );
                                 }
                                 
+                                // Render sub-item with indentation
+                                if (isSubItem) {
+                                  return (
+                                    <li key={idx} className="flex items-start space-x-2 text-sm ml-6">
+                                      <span className="text-gold mt-1">◦</span>
+                                      <span className="text-gray-300">{detail}</span>
+                                    </li>
+                                  );
+                                }
+                                
                                 return (
                                   <li key={idx} className="flex items-start space-x-2 text-sm">
                                     <span className="text-gold mt-1">•</span>
@@ -400,6 +424,17 @@ export default function Services() {
                                 );
                               })}
                             </ul>
+                            {/* Footer text for closing statements */}
+                            {service.details.length > 0 && 
+                             (service.details[service.details.length - 1].toLowerCase().startsWith('to support') ||
+                              service.details[service.details.length - 1].toLowerCase().startsWith('to ') ||
+                              service.details[service.details.length - 1].toLowerCase().startsWith('supporting')) && (
+                              <div className="mt-4 pt-3 border-t border-gold/10">
+                                <p className="text-xs text-gray-400 italic text-center">
+                                  {service.details[service.details.length - 1]}
+                                </p>
+                              </div>
+                            )}
                           </div>
                         </motion.div>
                       )}
