@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaUserMd, FaShieldAlt, FaLock, FaHeartbeat } from 'react-icons/fa';
+import { FaUserMd, FaShieldAlt, FaLock, FaHeartbeat, FaCheckCircle } from 'react-icons/fa';
 import Image from 'next/image';
 import { getImagePath } from '@/lib/utils';
 
@@ -107,7 +107,7 @@ export default function ForPatients() {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -131,6 +131,39 @@ export default function ForPatients() {
               );
             })}
           </div>
+
+          {/* How It Works Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="bg-lab-blue-dark/40 backdrop-blur-sm border border-gold/20 rounded-xl p-8 md:p-10"
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-gold mb-8 text-center">How It Works</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { step: 1, text: 'Test requested by your physician' },
+                { step: 2, text: 'Sample collection and coordination' },
+                { step: 3, text: 'Testing performed at accredited partner laboratories' },
+                { step: 4, text: 'Results delivered to your physician for explanation and care planning' },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.7 + index * 0.1, duration: 0.6 }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center mb-4">
+                    <span className="text-2xl font-bold text-gold">{item.step}</span>
+                  </div>
+                  <p className="text-gray-200 leading-relaxed">{item.text}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

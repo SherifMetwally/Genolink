@@ -129,6 +129,17 @@ export default function ForPhysicians() {
               })}
             </div>
           </motion.div>
+
+          {/* Additional Note */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="text-center text-gray-200 mt-8 text-lg leading-relaxed"
+          >
+            Tumor board and case discussion support available upon request.
+          </motion.p>
         </div>
       </div>
     </section>

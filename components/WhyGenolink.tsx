@@ -85,6 +85,15 @@ export default function WhyGenolink() {
             <span>Why Genolink</span>
           </h2>
           <div className="section-divider mx-auto max-w-md"></div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-xl md:text-2xl text-gray-200 text-center mt-6 leading-relaxed"
+          >
+            Bridging regional care with global genomic expertise.
+          </motion.p>
         </motion.div>
 
         <div className="max-w-6xl mx-auto">
@@ -170,6 +179,20 @@ export default function WhyGenolink() {
               })}
             </motion.div>
           </div>
+
+          {/* Medical Disclaimer */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="mt-12 bg-gold/5 border-l-4 border-gold rounded-r-lg p-6 md:p-8"
+          >
+            <h3 className="text-xl md:text-2xl font-bold text-gold mb-3">Medical Disclaimer</h3>
+            <p className="text-gray-200 leading-relaxed">
+              Genolink does not provide medical advice. All tests are ordered, interpreted, and explained by the treating physician as part of the patient&apos;s medical care.
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

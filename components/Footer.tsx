@@ -8,6 +8,19 @@ export default function Footer() {
   return (
     <footer className="bg-lab-blue-dark border-t border-gold/20 py-12">
       <div className="container mx-auto px-4">
+        {/* Quality & Compliance Statement */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-8 pb-8 border-b border-gold/20"
+        >
+          <h3 className="text-lg font-bold text-gold mb-3 text-center">Quality & Compliance</h3>
+          <p className="text-gray-300 text-sm text-center leading-relaxed max-w-4xl mx-auto">
+            All testing is performed at internationally accredited partner laboratories in accordance with applicable regulatory, quality, and confidentiality standards.
+          </p>
+        </motion.div>
+
         <div className="flex flex-col md:flex-row items-center justify-between">
           <motion.div
             initial={{ opacity: 0 }}

@@ -142,11 +142,11 @@ export default function Contact() {
                 For hospitals, healthcare institutions, and strategic collaborations.
               </p>
               <a
-                href="mailto:info@geno-link.com"
+                href="mailto:Businessdevelopment@geno-link.com"
                 className="text-lg text-gold hover:text-gold-light transition-colors inline-flex items-center gap-2"
               >
                 <FaEnvelope className="text-sm" />
-                <span>Email: info@geno-link.com</span>
+                <span>Email: Businessdevelopment@geno-link.com</span>
               </a>
             </motion.div>
 
