@@ -267,10 +267,21 @@ export default function Services() {
                   }`}
                 >
                   {service.featured && (
-                    <div className="absolute top-4 right-4 bg-gold text-white text-xs font-bold px-3 py-1 rounded-full">
+                    <div className="absolute top-4 right-4 bg-gold text-white text-xs font-bold px-3 py-1 rounded-full z-10">
                       Featured
                     </div>
                   )}
+
+                  {/* Service Image */}
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                      src={getImagePath(`services/${index + 1}.png`)}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-300 hover:scale-110"
+                      unoptimized
+                    />
+                  </div>
 
                   <div className="p-6">
                     <div className="flex items-start space-x-4 mb-4">

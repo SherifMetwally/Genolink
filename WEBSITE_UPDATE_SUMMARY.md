@@ -8,7 +8,7 @@ The GenoLink website has been completely updated to reflect the new focus on **P
 ## Major Changes
 
 ### 1. **Hero Section** (components/Hero.tsx)
-- **New Headline:** "Precision Oncology & Onco-Hematology Diagnostics Across Egypt, GCC & the Middle East"
+- **New Headline:** "Precision Oncology & Onco-Hematology Diagnostics Across Egypt, North Aftia, GCC & the Middle East"
 - **New Description:** Focus on genomic testing for solid tumors and hematologic malignancies
 - **Added CTAs:** 
   - "Submit a Sample" button
