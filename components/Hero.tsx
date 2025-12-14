@@ -42,7 +42,7 @@ export default function Hero() {
             transition={{ delay: 0.1, duration: 0.8 }}
             className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight"
           >
-            Precision Oncology & Onco-Hematology Diagnostics Across Egypt, GCC & the Middle East
+            Precision Oncology & Onco-Hematology Diagnostics Across Egypt, Libya, North Africa, GCC & the Middle East
           </motion.h1>
 
           {/* Subtitle */}
@@ -53,7 +53,7 @@ export default function Hero() {
             className="max-w-4xl mx-auto"
           >
             <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-8">
-              Genolink delivers advanced genomic testing for solid tumors and hematologic malignancies through partnerships with world-leading laboratories, ensuring accurate, clinically actionable results for patients and physicians across the region.
+              Genolink is a leading Egypt-based precision diagnostics company specializing in Oncology and Onco-Hematology genomics. We partner with world-class accredited laboratories to deliver advanced cancer testing solutions across Egypt, Libya, the GCC, North Africa and the wider Middle East.
             </p>
             
             {/* CTA Buttons */}

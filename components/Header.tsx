@@ -10,6 +10,7 @@ const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'services', label: 'Services' },
+  { id: 'onco-hematology-detail', label: 'Onco-Hematology Detail' },
   { id: 'sample-requirements', label: 'Sample Requirements' },
   { id: 'why-genolink', label: 'Why Genolink' },
   { id: 'physicians', label: 'For Physicians' },

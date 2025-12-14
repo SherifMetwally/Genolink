@@ -28,31 +28,42 @@ interface Service {
 
 const services: Service[] = [
   {
+    id: 'somatic-tumor-profiling',
+    icon: FaDna,
+    title: 'Somatic Tumor Profiling',
+    featured: true,
+    description: 'Tissue or Liquid — Same High Precision. Whether the sample is FFPE tumor tissue or liquid biopsy, Genolink provides a full somatic genomic profile using advanced DNA + RNA sequencing.',
+    details: [
+      'Actionable mutations',
+      'Fusions & complex rearrangements',
+      'CNVs & splice variants',
+      'Immunotherapy biomarkers',
+      'Treatment-matched insights & clinical trials',
+    ],
+  },
+  {
+    id: 'hereditary-cancer',
+    icon: FaHeartbeat,
+    title: 'Hereditary Cancer Testing',
+    featured: true,
+    description: 'Empowering Early Detection & Prevention. Our hereditary cancer panels identify inherited mutations linked to breast, ovarian, colorectal, prostate, pancreatic cancers, and more.',
+    details: [
+      'Screening strategies',
+      'Family risk assessment',
+      'Preventive care decisions',
+    ],
+  },
+  {
     id: 'complete-oncology-diagnostic',
     icon: FaClipboardCheck,
     title: 'Complete Oncology Diagnostic Support',
     featured: true,
-    description: 'Integrated pathology services offering a seamless diagnostic workflow for comprehensive cancer care.',
+    description: 'Integrated Pathology Services. Genolink offers a seamless diagnostic workflow combining genomics with expert pathology to deliver the most complete diagnostic picture for each patient.',
     details: [
       'Pathology Services',
       'Expert Pathology Review (Second Opinion)',
-      'Digital Pathology & Remote Consultations',
       'Immunohistochemistry (IHC)',
-    ],
-  },
-  {
-    id: 'solid-tumor-profiling',
-    icon: FaDna,
-    title: 'Comprehensive Solid Tumor Profiling',
-    featured: true,
-    description: 'Full DNA + RNA genomic profiling for solid tumors with pathway-level therapeutic insights.',
-    details: [
-      'TMB (Tumor Mutational Burden)',
-      'MSI (Microsatellite Instability)',
-      'Fusions',
-      'Copy number variations',
-      'LOH (Loss of Heterozygosity)',
-      'Pathway-level therapeutic insights',
+      'Digital Pathology & Remote Consultations',
     ],
   },
   {
@@ -96,21 +107,10 @@ const services: Service[] = [
     ],
   },
   {
-    id: 'hereditary-cancer',
-    icon: FaHeartbeat,
-    title: 'Hereditary Cancer Testing',
-    featured: false,
-    description: 'Genetic testing for inherited cancer risk assessment.',
-    details: [
-      'BRCA1/2',
-      'Multi-gene hereditary cancer panel (breast, ovarian, colon, prostate)',
-    ],
-  },
-  {
     id: 'leukemia-panels',
     icon: FaDna,
     title: 'Leukemia Genomic Panels',
-    featured: true,
+    featured: false,
     description: 'Comprehensive genomic panels for acute and chronic leukemias.',
     details: [
       'AML, ALL, CLL, CML',
@@ -159,7 +159,6 @@ const services: Service[] = [
     description: 'Ultra-sensitive detection of residual cancer cells to monitor treatment response.',
     details: [
       'NGS-based MRD',
-      'Flow cytometry MRD (if offered through partners)',
     ],
   },
 ];
@@ -214,10 +213,13 @@ export default function Services() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 white-gradient flex items-center justify-center gap-3">
             <FaDna className="text-gold" />
-            <span>Our Services</span>
+            <span>Genolink Oncology Services</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-6">
-            Oncology & Onco-Hematology Diagnostics
+            Precision Genomics for Every Cancer Patient
+          </p>
+          <p className="text-lg text-gray-200 max-w-4xl mx-auto mb-6">
+            At Genolink, we deliver next-generation oncology diagnostics designed to empower clinicians with fast, accurate, and actionable genomic insights—across both somatic and hereditary cancer testing.
           </p>
           <div className="section-divider mx-auto max-w-md"></div>
         </motion.div>

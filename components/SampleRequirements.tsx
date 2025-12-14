@@ -11,10 +11,7 @@ const sampleTypes = [
     icon: FaVial,
     title: 'Oncology (Solid Tumors)',
     requirements: [
-      'FFPE block',
-      'Unstained slides (5–10, 4–5 µm)',
-      'Blood sample (Streck tubes for ctDNA)',
-      'Saliva or EDTA blood for germline',
+
     ],
   },
   {
@@ -22,10 +19,7 @@ const sampleTypes = [
     icon: FaFlask,
     title: 'Onco-Hematology',
     requirements: [
-      'Bone marrow aspirate (EDTA)',
-      'Peripheral blood (EDTA)',
-      'Bone marrow biopsy block',
-      'Fresh tissue for lymphoma (if applicable)',
+
     ],
   },
 ];

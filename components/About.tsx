@@ -28,7 +28,7 @@ const aboutCards = [
     id: 'values',
     icon: FaHeart,
     title: 'Our Values',
-    content: 'Excellence: Clinical-grade quality and accuracy • Speed: Optimized regional logistics and fast turnaround • Innovation: Access to cutting-edge global technologies • Support: Strong scientific and medical consultation services',
+    content: 'Excellence: Clinical-grade quality and accuracy\nSpeed: Optimized regional logistics and fast turnaround\nInnovation: Access to cutting-edge global technologies\nSupport: Strong scientific and medical consultation services',
   },
 ];
 
@@ -140,7 +140,7 @@ export default function About() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold mb-3 text-gold">{card.title}</h3>
-                      <p className="text-gray-200 leading-relaxed">{card.content}</p>
+                      <p className="text-gray-200 leading-relaxed whitespace-pre-line">{card.content}</p>
                     </div>
                   </div>
                 </motion.div>
