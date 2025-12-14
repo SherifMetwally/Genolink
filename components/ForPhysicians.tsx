@@ -1,31 +1,18 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaStethoscope, FaFlask, FaShippingFast, FaComments } from 'react-icons/fa';
+import { FaStethoscope } from 'react-icons/fa';
 import Image from 'next/image';
 import { getImagePath } from '@/lib/utils';
 
 const benefits = [
-  {
-    icon: FaStethoscope,
-    title: 'Comprehensive Portfolio',
-    description: 'Covering oncology, hereditary, and reproductive genetics',
-  },
-  {
-    icon: FaShippingFast,
-    title: 'Easy Sample Logistics',
-    description: 'Blood, saliva, paraffin blocks',
-  },
-  {
-    icon: FaComments,
-    title: 'Expert Support',
-    description: 'Case discussion and report interpretation support',
-  },
-  {
-    icon: FaFlask,
-    title: 'Advanced Technology',
-    description: 'Access to advanced molecular profiling technologies',
-  },
+  'Comprehensive genomic testing across solid tumors and hematologic malignancies',
+  'Tissue-based and liquid biopsy testing options',
+  'High-quality, clinical-grade reports with clear interpretation',
+  'Access to advanced biomarkers, including HRD, TMB, MSI, PD-L1, and HER2',
+  'Integrated pathology and molecular diagnostics support',
+  'Scientific support for case discussion and tumor boards',
+  'End-to-end sample coordination and logistics',
 ];
 
 export default function ForPhysicians() {
@@ -82,19 +69,21 @@ export default function ForPhysicians() {
               className="order-1 lg:order-2"
             >
               <p className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
-                Partner with Genolink to enhance your diagnostic and treatment capabilities.
-                We offer seamless logistics, fast turnaround times, and expert case support — 
-                ensuring you and your patients benefit from global-standard genomic insights.
+              Genolink partners with physicians to deliver accurate, clinically actionable genomic insights that support confident diagnostic and treatment decisions in oncology and onco-hematology.
               </p>
             </motion.div>
           </div>
 
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">Why Partner with Us:</h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              return (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-6xl mx-auto"
+          >
+            <h3 className="text-2xl font-bold text-white mb-8 text-center">What we offer:</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {benefits.map((benefit, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
@@ -104,21 +93,14 @@ export default function ForPhysicians() {
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold/50 transition-all duration-300"
                 >
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
-                        <Icon className="text-xl text-gold" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold mb-2 text-gold">{benefit.title}</h4>
-                      <p className="text-gray-200">{benefit.description}</p>
-                    </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="text-gold mt-1 flex-shrink-0">•</span>
+                    <h4 className="text-lg font-semibold text-gray-200">{benefit}</h4>
                   </div>
                 </motion.div>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

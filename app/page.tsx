@@ -21,7 +21,6 @@ export default function Home() {
       <About />
       <Services />
       <OncoHematologyDetail />
-      <SampleRequirements />
       <WhyGenolink />
       <ForPhysicians />
       <ForPatients />
