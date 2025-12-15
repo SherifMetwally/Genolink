@@ -20,7 +20,7 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
-      <OncoHematologyDetail />
+      {/* <OncoHematologyDetail /> */}
       <WhyGenolink />
       <ForPhysicians />
       <ForPatients />
