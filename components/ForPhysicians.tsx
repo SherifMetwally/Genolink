@@ -1,38 +1,45 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaStethoscope, FaDna, FaVial, FaFileAlt, FaMicroscope, FaClipboardCheck, FaUsers, FaShippingFast } from 'react-icons/fa';
+import { FaStethoscope, FaDna, FaVial, FaFileAlt, FaMicroscope, FaClipboardCheck, FaUsers, FaShippingFast, FaPuzzlePiece, FaCommentMedical, FaHandshake } from 'react-icons/fa';
 import Image from 'next/image';
 import { getImagePath } from '@/lib/utils';
 
 const benefits = [
   {
     icon: FaDna,
-    text: 'Comprehensive genomic testing across solid tumors and hematologic malignancies.',
+    title: 'Comprehensive Genomic Testing',
+    description: 'Genomic testing across solid tumors and hematologic malignancies.',
   },
   {
     icon: FaVial,
-    text: 'Tissue-based and liquid biopsy testing options.',
+    title: 'Tissue & Liquid Biopsy Options',
+    description: 'Tissue-based and liquid biopsy testing options.',
   },
   {
     icon: FaFileAlt,
-    text: 'High-quality, clinical-grade reports with clear interpretation.',
+    title: 'Clinical-Grade Reporting',
+    description: 'High-quality, clinical-grade reports with clear interpretation.',
   },
   {
     icon: FaMicroscope,
-    text: 'Access to advanced biomarkers, including HRD, TMB, MSI, PD-L1, and HER2.',
+    title: 'Advanced Biomarkers',
+    description: 'Access to advanced biomarkers, including HRD, TMB, MSI, PD-L1, and HER2.',
   },
   {
     icon: FaClipboardCheck,
-    text: 'Integrated pathology and molecular diagnostics support.',
+    title: 'Integrated Diagnostics',
+    description: 'Integrated pathology and molecular diagnostics support.',
   },
   {
     icon: FaUsers,
-    text: 'Scientific support for case discussion and tumor boards.',
+    title: 'Scientific Case Support',
+    description: 'Scientific support for case discussion and tumor boards.',
   },
   {
     icon: FaShippingFast,
-    text: 'End-to-end sample coordination and logistics.',
+    title: 'End-to-End Logistics',
+    description: 'End-to-end sample coordination and logistics.',
   },
 ];
 
@@ -102,8 +109,11 @@ export default function ForPhysicians() {
             transition={{ duration: 0.8 }}
             className="max-w-6xl mx-auto"
           >
-            <h3 className="text-2xl font-bold text-white mb-8 text-center">What we offer:</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <h3 className="text-2xl md:text-3xl font-bold text-gold mb-8 text-center flex items-center justify-center gap-2">
+              <FaPuzzlePiece className="text-gold" />
+              <span>What We Offer</span>
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
@@ -114,32 +124,43 @@ export default function ForPhysicians() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.6 }}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold/50 transition-all duration-300"
+                    className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold/50 transition-all duration-300 text-center"
                   >
-                    <div className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center">
-                          <Icon className="text-gold text-sm" />
-                        </div>
+                    <div className="flex justify-center mb-4">
+                      <div className="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center">
+                        <Icon className="text-3xl text-gold" />
                       </div>
-                      <h4 className="text-lg font-semibold text-gray-200">{benefit.text}</h4>
                     </div>
+                    <h4 className="text-lg font-bold mb-2 text-gold">{benefit.title}</h4>
+                    <p className="text-gray-200 text-sm leading-relaxed">{benefit.description}</p>
                   </motion.div>
                 );
               })}
+              
+              {/* Combined Tumor Board & Case Discussion Support - Takes 2 columns */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-lab-blue-dark/50 backdrop-blur-sm rounded-lg p-6 border border-gold/20 hover:border-gold/50 transition-all duration-300 text-center md:col-span-2 lg:col-span-2"
+              >
+                <div className="flex justify-center gap-6 mb-4">
+                  <div className="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center">
+                    <FaCommentMedical className="text-3xl text-gold" />
+                  </div>
+                  <div className="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center">
+                    <FaHandshake className="text-3xl text-gold" />
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold mb-2 text-gold">Tumor Board & Case Discussion Support</h4>
+                <p className="text-gray-200 text-sm leading-relaxed">
+                  Tumor board and case discussion support available upon request.
+                </p>
+              </motion.div>
             </div>
           </motion.div>
-
-          {/* Additional Note */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="text-center text-gray-200 mt-8 text-lg leading-relaxed"
-          >
-            Tumor board and case discussion support available upon request.
-          </motion.p>
         </div>
       </div>
     </section>

@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaQuestionCircle, FaChevronDown, FaChevronUp, FaEnvelope } from 'react-icons/fa';
+import Image from 'next/image';
+import { getImagePath } from '@/lib/utils';
 
 const faqs = [
   {
@@ -115,6 +117,23 @@ export default function FAQ() {
         </motion.div>
 
         <div className="max-w-3xl mx-auto">
+          {/* FAQ Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            whileHover={{ scale: 1.05 }}
+            className="relative h-64 md:h-80 rounded-lg overflow-hidden border-2 border-gold/30 mb-12 cursor-pointer transition-all duration-300"
+          >
+            <Image
+              src={getImagePath('sections/faq.png')}
+              alt="Frequently Asked Questions"
+              fill
+              className="object-cover transition-transform duration-300 hover:scale-110"
+              unoptimized
+            />
+          </motion.div>
           <motion.div
             variants={containerVariants}
             initial="hidden"

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaGlobe, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaEnvelope, FaGlobe, FaMapMarkerAlt, FaPhone, FaUserMd, FaHandshake } from 'react-icons/fa';
 import Image from 'next/image';
 import { getImagePath } from '@/lib/utils';
 
@@ -108,7 +108,7 @@ export default function Contact() {
               className="mb-8"
             >
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">🧑‍⚕️</span>
+                <FaUserMd className="text-2xl text-gold" />
                 <h3 className="text-xl md:text-2xl font-bold text-gold">Medical Support</h3>
               </div>
               <p className="text-gray-200 mb-3 leading-relaxed">
@@ -135,7 +135,7 @@ export default function Contact() {
               className="mb-8"
             >
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">🤝</span>
+                <FaHandshake className="text-2xl text-gold" />
                 <h3 className="text-xl md:text-2xl font-bold text-gold">Business Partnerships</h3>
               </div>
               <p className="text-gray-200 mb-3 leading-relaxed">

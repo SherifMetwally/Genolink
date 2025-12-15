@@ -14,7 +14,7 @@ const navItems = [
   { id: 'why-genolink', label: 'Why Genolink' },
   { id: 'physicians', label: 'For Physicians' },
   { id: 'patients', label: 'For Patients' },
-  { id: 'partners', label: 'Partners' },
+  { id: 'partners', label: 'Our Partners' },
   { id: 'collaboration', label: 'Collaboration' },
   { id: 'faq', label: 'FAQ' },
   { id: 'contact', label: 'Contact' },
