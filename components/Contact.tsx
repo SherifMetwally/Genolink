@@ -207,7 +207,7 @@ export default function Contact() {
                 <h3 className="text-xl md:text-2xl font-bold text-gold">Regional Coverage</h3>
               </div>
               <p className="text-lg text-gray-200 mb-3 leading-relaxed">
-                Serving healthcare providers across Egypt, Libya, North Africa, the GCC, and the Middle East.
+                Serving healthcare providers across Egypt and North Africa.
               </p>
               <p className="text-gray-300 leading-relaxed">
                 Additional regional contact points available upon request.

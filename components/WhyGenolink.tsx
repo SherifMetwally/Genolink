@@ -10,7 +10,7 @@ const reasons = [
     id: 'regional-reach',
     icon: FaMapMarkerAlt,
     title: 'Egypt-based operations with regional reach',
-    description: 'Coverage across the GCC, Libya, and the broader Middle East & North Africa (MENA).',
+    description: 'Coverage across Egypt and North Africa.',
   },
   {
     id: 'partnerships',

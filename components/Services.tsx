@@ -97,17 +97,19 @@ const services: Service[] = [
     icon: FaDna,
     title: 'Onco-Hematology',
     featured: true,
-    description: 'Hematologic Malignancy Genomics.\n Comprehensive genomic profiling for hematologic malignancies to support accurate diagnosis, risk stratification, prognosis, and treatment selection.',
+    description:
+      'Onco-Hematology is a specialized field that focuses on cancers and disorders of the blood, bone marrow, and lymphatic system. It integrates Hematology (diseases of the blood) and Oncology (cancer care) to deliver comprehensive diagnostic and clinical insights.',
     details: [
-      'Key features:',
-      'Leukemia.',
-      'Acute & chronic myeloid leukemia (AML, CML).',
-      'Acute & chronic lymphoid leukemia (ALL, CLL).',
-      'Lymphoma.',
-      'Multiple myeloma.',
-      'DNA and RNA–based assays.',
-      'Gene fusions & rearrangements.',
-      'Prognostic and predictive biomarkers.',
+      'Conditions commonly managed include:',
+      'Leukemias (acute and chronic).',
+      'Lymphomas (Hodgkin and Non-Hodgkin).',
+      'Plasma Cell Disorders (Multiple Myeloma, MGUS).',
+      'Bone Marrow Disorders, including:',
+      'Myelodysplastic Syndromes (MDS).',
+      'Myeloproliferative Neoplasms (MPN).',
+      'Selected non-malignant blood disorders.',
+      'RNA-based testing at Genolink:',
+      'At Genolink, advanced RNA profiling is available as part of our onco-hematology diagnostic portfolio. RNA analysis provides critical insights into gene expression patterns, fusion transcripts, and disease-driving pathways that may not be captured by DNA testing alone. This enables more accurate classification, prognostic assessment, and informed therapeutic decision-making—particularly in leukemias and lymphomas.',
     ],
   },
   {
@@ -394,14 +396,21 @@ export default function Services() {
                             <ul className="space-y-2">
                               {service.details.map((detail, idx) => {
                                 // Check if it's a section header (contains emoji or ends with colon)
-                                const isSectionHeader = detail.includes('📋') || detail.includes('⚡') || (detail.endsWith(':') && detail.length < 30);
+                                const isSectionHeader =
+                                  detail.includes('📋') ||
+                                  detail.includes('⚡') ||
+                                  detail === 'Conditions commonly managed include:' ||
+                                  (detail.endsWith(':') && detail.length < 30);
                                 // Check if it's an empty line
                                 const isEmpty = detail.trim() === '';
                                 // Check if it's a footer (starts with "to support" or similar, and is the last item)
-                                const isFooter = idx === service.details.length - 1 && 
-                                  (detail.toLowerCase().startsWith('to support') || 
-                                   detail.toLowerCase().startsWith('to ') ||
-                                   detail.toLowerCase().startsWith('supporting'));
+                                const isFooter =
+                                  idx === service.details.length - 1 &&
+                                  (detail.toLowerCase().startsWith('to support') ||
+                                    detail.toLowerCase().startsWith('to ') ||
+                                    detail.toLowerCase().startsWith('supporting') ||
+                                    (service.id === 'onco-hematology' &&
+                                      detail.startsWith('At Genolink, advanced RNA profiling')));
                                 // Check if it's a sub-item (follows "Leukemia." or another sub-item, and starts with "Acute &")
                                 const prevItem = idx > 0 ? service.details[idx - 1] : '';
                                 const isSubItem = detail.startsWith('Acute &') && 
@@ -443,10 +452,20 @@ export default function Services() {
                               })}
                             </ul>
                             {/* Footer text for closing statements */}
-                            {service.details.length > 0 && 
-                             (service.details[service.details.length - 1].toLowerCase().startsWith('to support') ||
-                              service.details[service.details.length - 1].toLowerCase().startsWith('to ') ||
-                              service.details[service.details.length - 1].toLowerCase().startsWith('supporting')) && (
+                            {service.details.length > 0 &&
+                              (service.details[service.details.length - 1]
+                                .toLowerCase()
+                                .startsWith('to support') ||
+                                service.details[service.details.length - 1]
+                                  .toLowerCase()
+                                  .startsWith('to ') ||
+                                service.details[service.details.length - 1]
+                                  .toLowerCase()
+                                  .startsWith('supporting') ||
+                                (service.id === 'onco-hematology' &&
+                                  service.details[service.details.length - 1].startsWith(
+                                    'At Genolink, advanced RNA profiling'
+                                  ))) && (
                               <div className="mt-4 pt-3 border-t border-gold/10">
                                 <p className="text-xs text-gray-400 italic text-center">
                                   {service.details[service.details.length - 1]}

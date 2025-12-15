@@ -10,7 +10,7 @@ const aboutCards = [
     id: 'who',
     icon: FaDna,
     title: 'Who We Are',
-    content: 'Genolink is an Egypt-based precision diagnostics company dedicated to advancing cancer care through cutting-edge Oncology and Onco-Hematology genomics. We partner with internationally accredited laboratories to deliver clinically actionable, state-of-the-art cancer testing solutions across Egypt, Libya, North Africa, GCC & the Middle East.',
+    content: 'Genolink is an Egypt-based precision diagnostics company dedicated to advancing cancer care through cutting-edge Oncology and Onco-Hematology genomics. We partner with internationally accredited laboratories to deliver clinically actionable, state-of-the-art cancer testing solutions across Egypt and North Africa..',
   },
   {
     id: 'mission',
@@ -114,7 +114,7 @@ export default function About() {
             <div>
               <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
                 Genolink is an Egypt-based precision diagnostics company dedicated to advancing cancer care through cutting-edge Oncology and Onco-Hematology genomics.
-                We partner with internationally accredited laboratories to deliver clinically actionable, state-of-the-art cancer testing solutions across Egypt, Libya, North Africa, GCC & the Middle East.
+                We partner with internationally accredited laboratories to deliver clinically actionable, state-of-the-art cancer testing solutions across Egypt and North Africa..
               </p>
             </div>
           </motion.div>
