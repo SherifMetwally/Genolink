@@ -1,7 +1,6 @@
 const express = require('express');
 const db      = require('../db');
 const { authenticate } = require('../middleware/auth');
-const { requireRole }  = require('../middleware/role');
 
 const router = express.Router();
 router.use(authenticate);
@@ -59,7 +58,42 @@ router.get('/:id', async (req, res) => {
     if (req.user.role !== 'admin' && req_row.doctor_id !== req.user.id) {
       return res.status(403).json({ message: 'Access denied' });
     }
-    res.json(req_row);
+
+    const [statusNotes] = await db.execute(
+      `SELECT sn.id, sn.status, sn.note, sn.created_at, u.name AS created_by_name, u.role AS created_by_role
+       FROM status_notes sn
+       JOIN users u ON u.id = sn.created_by
+       WHERE sn.test_request_id = ?
+       ORDER BY sn.created_at DESC`,
+      [req.params.id]
+    );
+
+    res.json({ ...req_row, status_notes: statusNotes });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// GET /api/test-requests/:id/notes — list status notes for a request
+router.get('/:id/notes', async (req, res) => {
+  try {
+    const [existing] = await db.execute('SELECT id, doctor_id FROM test_requests WHERE id = ?', [req.params.id]);
+    const tr = existing[0];
+    if (!tr) return res.status(404).json({ message: 'Test request not found' });
+    if (req.user.role !== 'admin' && tr.doctor_id !== req.user.id) {
+      return res.status(403).json({ message: 'Access denied' });
+    }
+
+    const [rows] = await db.execute(
+      `SELECT sn.id, sn.status, sn.note, sn.created_at, u.name AS created_by_name, u.role AS created_by_role
+       FROM status_notes sn
+       JOIN users u ON u.id = sn.created_by
+       WHERE sn.test_request_id = ?
+       ORDER BY sn.created_at DESC`,
+      [req.params.id]
+    );
+    res.json(rows);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Server error' });
@@ -103,20 +137,88 @@ router.post('/', async (req, res) => {
   }
 });
 
-// PATCH /api/test-requests/:id/status — admin updates status
-router.patch('/:id/status', requireRole('admin'), async (req, res) => {
-  const { status } = req.body;
+// PATCH /api/test-requests/:id/status — admin or owning doctor updates status
+// Optional body.note is stored as a status note (multiple notes allowed per request)
+router.patch('/:id/status', async (req, res) => {
+  const { status, note } = req.body;
   if (!VALID_STATUSES.includes(status)) {
     return res.status(400).json({ message: `status must be one of: ${VALID_STATUSES.join(', ')}` });
   }
 
   try {
-    const [existing] = await db.execute('SELECT id FROM test_requests WHERE id = ?', [req.params.id]);
-    if (!existing[0]) return res.status(404).json({ message: 'Test request not found' });
+    const [existing] = await db.execute(
+      'SELECT id, doctor_id, status AS current_status FROM test_requests WHERE id = ?',
+      [req.params.id]
+    );
+    const tr = existing[0];
+    if (!tr) return res.status(404).json({ message: 'Test request not found' });
+
+    const isAdmin = req.user.role === 'admin';
+    const isOwner = req.user.role === 'doctor' && tr.doctor_id === req.user.id;
+    if (!isAdmin && !isOwner) {
+      return res.status(403).json({ message: 'Access denied' });
+    }
 
     await db.execute('UPDATE test_requests SET status = ? WHERE id = ?', [status, req.params.id]);
+
+    // Always record a status-change history row; note text is optional
+    const noteText = typeof note === 'string' ? note.trim() : '';
+    await db.execute(
+      'INSERT INTO status_notes (test_request_id, status, note, created_by) VALUES (?, ?, ?, ?)',
+      [req.params.id, status, noteText || null, req.user.id]
+    );
+
     const [rows] = await db.execute('SELECT * FROM test_requests WHERE id = ?', [req.params.id]);
-    res.json(rows[0]);
+    const [statusNotes] = await db.execute(
+      `SELECT sn.id, sn.status, sn.note, sn.created_at, u.name AS created_by_name, u.role AS created_by_role
+       FROM status_notes sn
+       JOIN users u ON u.id = sn.created_by
+       WHERE sn.test_request_id = ?
+       ORDER BY sn.created_at DESC`,
+      [req.params.id]
+    );
+
+    res.json({ ...rows[0], status_notes: statusNotes });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// POST /api/test-requests/:id/notes — add an optional note without changing status
+router.post('/:id/notes', async (req, res) => {
+  const noteText = typeof req.body.note === 'string' ? req.body.note.trim() : '';
+  if (!noteText) {
+    return res.status(400).json({ message: 'note is required when adding without a status change' });
+  }
+
+  try {
+    const [existing] = await db.execute(
+      'SELECT id, doctor_id, status FROM test_requests WHERE id = ?',
+      [req.params.id]
+    );
+    const tr = existing[0];
+    if (!tr) return res.status(404).json({ message: 'Test request not found' });
+
+    const isAdmin = req.user.role === 'admin';
+    const isOwner = req.user.role === 'doctor' && tr.doctor_id === req.user.id;
+    if (!isAdmin && !isOwner) {
+      return res.status(403).json({ message: 'Access denied' });
+    }
+
+    const [result] = await db.execute(
+      'INSERT INTO status_notes (test_request_id, status, note, created_by) VALUES (?, ?, ?, ?)',
+      [req.params.id, tr.status, noteText, req.user.id]
+    );
+
+    const [rows] = await db.execute(
+      `SELECT sn.id, sn.status, sn.note, sn.created_at, u.name AS created_by_name, u.role AS created_by_role
+       FROM status_notes sn
+       JOIN users u ON u.id = sn.created_by
+       WHERE sn.id = ?`,
+      [result.insertId]
+    );
+    res.status(201).json(rows[0]);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Server error' });

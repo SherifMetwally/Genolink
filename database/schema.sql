@@ -2,8 +2,10 @@
 -- Run this file against a MySQL 8.0+ server
 -- Usage: mysql -u root -p genolink < schema.sql
 
-CREATE DATABASE IF NOT EXISTS genolink CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE genolink;
+CREATE DATABASE IF NOT EXISTS u757955434_genolink
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+USE u757955434_genolink;
 
 -- -------------------------------------------------------
 -- Users (doctors + admins share this table)
@@ -88,4 +90,21 @@ CREATE TABLE IF NOT EXISTS reports (
   uploaded_at      TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT fk_report_request     FOREIGN KEY (test_request_id) REFERENCES test_requests(id) ON DELETE CASCADE,
   CONSTRAINT fk_report_uploaded_by FOREIGN KEY (uploaded_by)     REFERENCES users(id)          ON DELETE RESTRICT
+);
+
+-- -------------------------------------------------------
+-- Status notes (optional notes on each status change;
+-- multiple notes allowed per test request)
+-- -------------------------------------------------------
+CREATE TABLE IF NOT EXISTS status_notes (
+  id               INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  test_request_id  INT UNSIGNED NOT NULL,
+  status           ENUM('pending','processing','completed','cancelled') NOT NULL,
+  note             TEXT NULL,
+  created_by       INT UNSIGNED NOT NULL,
+  created_at       TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_sn_request FOREIGN KEY (test_request_id) REFERENCES test_requests(id) ON DELETE CASCADE,
+  CONSTRAINT fk_sn_user    FOREIGN KEY (created_by)      REFERENCES users(id)         ON DELETE RESTRICT,
+  INDEX idx_sn_request (test_request_id),
+  INDEX idx_sn_created (created_at)
 );

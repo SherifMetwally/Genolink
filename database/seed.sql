@@ -7,7 +7,7 @@
 --   password: Admin@1234
 -- CHANGE THE PASSWORD after first login.
 
-USE genolink;
+USE u757955434_genolink;
 
 -- Admin user (password: Admin@1234 — bcrypt hash rounds=10)
 INSERT INTO users (name, email, password_hash, role) VALUES

@@ -77,7 +77,13 @@ export default async function TestRequestsPage() {
                       <td className="px-6 py-3"><Badge status={r.status} /></td>
                       <td className="px-6 py-3 text-gray-400">{formatDate(r.created_at)}</td>
                       <td className="px-6 py-3 text-gray-400">{formatDate(r.updated_at)}</td>
-                      <td className="px-6 py-3">
+                      <td className="px-6 py-3 whitespace-nowrap">
+                        <Link
+                          href={`/test-requests/${r.id}`}
+                          className="text-xs text-brand-600 hover:underline mr-3"
+                        >
+                          Notes / Status
+                        </Link>
                         {r.report_id ? (
                           <a
                             href={clientApi(`reports/${r.report_id}/download`)}
@@ -89,9 +95,7 @@ export default async function TestRequestsPage() {
                           <Link href={`/admin/upload?requestId=${r.id}`} className="text-xs text-gray-400 hover:text-brand-600">
                             Upload
                           </Link>
-                        ) : (
-                          <span className="text-xs text-gray-300">—</span>
-                        )}
+                        ) : null}
                       </td>
                     </tr>
                   ))}

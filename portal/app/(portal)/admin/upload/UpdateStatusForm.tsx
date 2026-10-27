@@ -20,6 +20,7 @@ export default function UpdateStatusForm({ requests }: { requests: TestRequest[]
   const router   = useRouter();
   const [reqId,  setReqId]  = useState('');
   const [status, setStatus] = useState('');
+  const [note,   setNote]   = useState('');
   const [busy,   setBusy]   = useState(false);
   const [msg,    setMsg]    = useState('');
 
@@ -32,11 +33,16 @@ export default function UpdateStatusForm({ requests }: { requests: TestRequest[]
       const res = await fetch(clientApi(`test-requests/${reqId}/status`), {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status }),
+        body: JSON.stringify({
+          status,
+          note: note.trim() || undefined,
+        }),
       });
       if (res.ok) {
         setMsg('Status updated successfully');
-        setReqId(''); setStatus('');
+        setReqId('');
+        setStatus('');
+        setNote('');
         router.refresh();
       } else {
         const d = await res.json();
@@ -55,33 +61,50 @@ export default function UpdateStatusForm({ requests }: { requests: TestRequest[]
     <Card>
       <CardHeader>
         <h2 className="font-semibold text-gray-900">Update Test Status</h2>
+        <p className="text-sm text-gray-500 mt-0.5">Optional note is saved with each status change. Multiple notes are allowed per request.</p>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="flex flex-wrap gap-3 items-end">
-          <div className="flex-1 min-w-[220px] flex flex-col gap-1">
-            <label htmlFor="update-reqId" className="text-sm font-medium text-gray-700">Test Request</label>
-            <select
-              id="update-reqId" value={reqId} onChange={e => setReqId(e.target.value)} required
-              className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
-            >
-              <option value="">Select request…</option>
-              {requests.map(r => (
-                <option key={r.id} value={r.id}>
-                  #{r.id} — {r.first_name} {r.last_name} — {r.test_name}
-                </option>
-              ))}
-            </select>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="flex flex-wrap gap-3 items-end">
+            <div className="flex-1 min-w-[220px] flex flex-col gap-1">
+              <label htmlFor="update-reqId" className="text-sm font-medium text-gray-700">Test Request</label>
+              <select
+                id="update-reqId" value={reqId} onChange={e => setReqId(e.target.value)} required
+                className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+              >
+                <option value="">Select request…</option>
+                {requests.map(r => (
+                  <option key={r.id} value={r.id}>
+                    #{r.id} — {r.first_name} {r.last_name} — {r.test_name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex-1 min-w-[150px] flex flex-col gap-1">
+              <label htmlFor="update-status" className="text-sm font-medium text-gray-700">New Status</label>
+              <select
+                id="update-status" value={status} onChange={e => setStatus(e.target.value)} required
+                className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+              >
+                <option value="">Select status…</option>
+                {STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
+              </select>
+            </div>
           </div>
 
-          <div className="flex-1 min-w-[150px] flex flex-col gap-1">
-            <label htmlFor="update-status" className="text-sm font-medium text-gray-700">New Status</label>
-            <select
-              id="update-status" value={status} onChange={e => setStatus(e.target.value)} required
+          <div className="flex flex-col gap-1">
+            <label htmlFor="update-note" className="text-sm font-medium text-gray-700">
+              Note <span className="text-gray-400 font-normal">(optional)</span>
+            </label>
+            <textarea
+              id="update-note"
+              value={note}
+              onChange={e => setNote(e.target.value)}
+              rows={3}
+              placeholder="Add a note about this status change…"
               className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
-            >
-              <option value="">Select status…</option>
-              {STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
-            </select>
+            />
           </div>
 
           <Button type="submit" disabled={busy}>{busy ? 'Updating…' : 'Update'}</Button>

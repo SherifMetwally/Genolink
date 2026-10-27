@@ -31,7 +31,7 @@ export default async function UploadReportPage() {
         <p className="text-sm text-gray-500 mt-1">Upload PDF reports for completed tests or update test request status</p>
       </div>
 
-      <UpdateStatusForm requests={noReport.filter(r => r.status !== 'completed')} />
+      <UpdateStatusForm requests={requests} />
       <UploadForm requests={noReport} />
     </div>
   );
